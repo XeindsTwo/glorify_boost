@@ -1,0 +1,22 @@
+.top {
+    max-width: 716px;
+    margin-bottom: 64px;
+
+    &__slogan {
+        font-weight: 600;
+        margin-bottom: 12px;
+        display: inline-block;
+        color: $primary400;
+    }
+
+    &__title {
+        font-size: 36px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        font-size: 20px;
+        color: $gray500;
+    }
+}

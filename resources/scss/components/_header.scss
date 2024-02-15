@@ -1,0 +1,33 @@
+.header {
+    padding: 20px 0;
+    border-bottom: 1px solid $black600;
+
+    &__inner {
+        @include flex-align-center(50);
+    }
+
+    &__list {
+        @include flex-align-center(32);
+    }
+
+    &__link {
+        transition: color .4s, opacity .4s, border .4s;
+        color: $gray500;
+        font-weight: 600;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 2px;
+
+        &:hover {
+            color: $primary400;
+        }
+
+        &:focus {
+            color: $white;
+            border-bottom-color: $white;
+        }
+    }
+
+    &__btn {
+        margin-left: auto;
+    }
+}

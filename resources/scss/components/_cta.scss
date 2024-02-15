@@ -1,0 +1,22 @@
+.cta {
+    padding: 48px 0;
+    background-color: $black500;
+
+    &__inner {
+        @include flex-between(30);
+    }
+
+    &__content {
+        max-width: 770px;
+    }
+
+    &__title {
+        font-size: 20px;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+    &__text {
+        color: $gray400;
+    }
+}
