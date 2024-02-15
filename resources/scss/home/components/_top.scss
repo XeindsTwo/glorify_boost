@@ -2,6 +2,10 @@
     max-width: 716px;
     margin-bottom: 64px;
 
+    &--short {
+        max-width: 560px;
+    }
+
     &__slogan {
         font-weight: 600;
         margin-bottom: 12px;
