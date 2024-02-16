@@ -9,7 +9,7 @@ class CaptchaController extends Controller
 {
     public function generateCaptcha(): void
     {
-        $characters = '0123456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
+        $characters = '0123456789abcdefhjkmnpqrstuvwxyz';
         $captchaText = substr(str_shuffle($characters), 0, 7);
         session(['captcha' => $captchaText]);
 
