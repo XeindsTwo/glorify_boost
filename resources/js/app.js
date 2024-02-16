@@ -1,20 +1,29 @@
-import './bootstrap';
+import {openModal, closeModal, handleModalClose} from './components/modal-functions.js';
 
-const helpBtn = document.getElementById('helpBtn');
-const headerNav = document.querySelector('.header__nav');
+const modalContact = document.getElementById('modal-contact')
+const openModalContact = document.getElementById('btn-contact')
+const closeModalContact = document.getElementById('close-contact')
 
-helpBtn.addEventListener('click', () => {
-    helpBtn.classList.toggle('active');
-    helpBtn.blur();
-    headerNav.classList.toggle('active');
-});
+const modalAuth = document.getElementById('modal-auth')
+const openModalAuth = document.getElementById('btn-auth')
+const closeModalAuth = document.getElementById('close-auth')
 
-document.addEventListener('click', (event) => {
-    const isClickInsideNav = headerNav.contains(event.target);
-    const isClickOnHelpBtn = helpBtn.contains(event.target);
+openModalContact.addEventListener('click', () => {
+    openModal(modalContact)
+})
 
-    if (!isClickInsideNav && !isClickOnHelpBtn) {
-        helpBtn.classList.remove('active');
-        headerNav.classList.remove('active');
-    }
-});
+closeModalContact.addEventListener('click', () => {
+    closeModal(modalContact)
+})
+
+handleModalClose(modalContact)
+
+openModalAuth.addEventListener('click', () => {
+    openModal(modalAuth)
+})
+
+closeModalAuth.addEventListener('click', () => {
+    closeModal(modalAuth)
+})
+
+handleModalClose(modalAuth)

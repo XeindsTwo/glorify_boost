@@ -16,11 +16,11 @@
                         <a class="header__link" href="#faq">FAQ</a>
                     </li>
                     <li>
-                        <a class="header__link" href="#contacts">Контакты</a>
+                        <button class="header__link" id="btn-contact" type="button">Контакты</button>
                     </li>
                 </ul>
             </nav>
-            <button class="header__btn btn" type="button">Войти</button>
+            <button class="header__btn btn" id="btn-auth" type="button">Войти</button>
         </div>
     </div>
 </header>

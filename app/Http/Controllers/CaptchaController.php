@@ -18,7 +18,7 @@ class CaptchaController extends Controller
         imagefilledrectangle($image, 0, 0, 120, 40, $bgColor);
 
         $textColor = imagecolorallocate($image, 0, 0, 0);
-        $fontPath = public_path('static/fonts/Circe-Regular.woff');
+        $fontPath = public_path('static/fonts/Inter-Medium.woff');
         imagettftext($image, 20, 0, 10, 30, $textColor, $fontPath, $captchaText);
 
         for ($i = 0; $i < 1000; $i++) {
