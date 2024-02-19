@@ -38,7 +38,7 @@ class RegisterController extends Controller
 
       Auth::login($user);
       DB::commit();
-      return redirect('login')->with('success', 'Регистрация прошла успешно!');
+      return redirect('/')->with('success', 'Регистрация прошла успешно!');
     } catch (Exception) {
       DB::rollBack();
       return redirect('/503_error');
