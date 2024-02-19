@@ -8,6 +8,7 @@
 
     &__list {
         @include flex-align-center(32);
+        align-items: flex-start;
     }
 
     &__link {

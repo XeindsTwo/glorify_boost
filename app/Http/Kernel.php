@@ -31,50 +31,48 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class Kernel extends HttpKernel
 {
-    protected $routeMiddleware = [
-        'admin' => AdminMiddleware::class,
-        'checkdb' => CheckDatabaseConnection::class,
-        'auth' => Authenticate::class,
-    ];
+  protected $routeMiddleware = [
+    'admin' => AdminMiddleware::class,
+    'checkdb' => CheckDatabaseConnection::class,
+    'auth' => Authenticate::class,
+  ];
 
-    protected $middleware = [
-        // \App\Http\Middleware\TrustHosts::class,
-        TrustProxies::class,
-        HandleCors::class,
-        PreventRequestsDuringMaintenance::class,
-        ValidatePostSize::class,
-        TrimStrings::class,
-        ConvertEmptyStringsToNull::class,
-    ];
+  protected $middleware = [
+    TrustProxies::class,
+    HandleCors::class,
+    PreventRequestsDuringMaintenance::class,
+    ValidatePostSize::class,
+    TrimStrings::class,
+    ConvertEmptyStringsToNull::class,
+  ];
 
-    protected $middlewareGroups = [
-        'web' => [
-            EncryptCookies::class,
-            AddQueuedCookiesToResponse::class,
-            StartSession::class,
-            ShareErrorsFromSession::class,
-            VerifyCsrfToken::class,
-            SubstituteBindings::class,
-        ],
+  protected $middlewareGroups = [
+    'web' => [
+      EncryptCookies::class,
+      AddQueuedCookiesToResponse::class,
+      StartSession::class,
+      ShareErrorsFromSession::class,
+      VerifyCsrfToken::class,
+      SubstituteBindings::class,
+    ],
 
-        'api' => [
-            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            ThrottleRequests::class . ':api',
-            SubstituteBindings::class,
-        ],
-    ];
+    'api' => [
+      ThrottleRequests::class . ':api',
+      SubstituteBindings::class,
+    ],
+  ];
 
-    protected $middlewareAliases = [
-        'auth' => Authenticate::class,
-        'auth.basic' => AuthenticateWithBasicAuth::class,
-        'auth.session' => AuthenticateSession::class,
-        'cache.headers' => SetCacheHeaders::class,
-        'can' => Authorize::class,
-        'guest' => RedirectIfAuthenticated::class,
-        'password.confirm' => RequirePassword::class,
-        'precognitive' => HandlePrecognitiveRequests::class,
-        'signed' => ValidateSignature::class,
-        'throttle' => ThrottleRequests::class,
-        'verified' => EnsureEmailIsVerified::class,
-    ];
+  protected $middlewareAliases = [
+    'auth' => Authenticate::class,
+    'auth.basic' => AuthenticateWithBasicAuth::class,
+    'auth.session' => AuthenticateSession::class,
+    'cache.headers' => SetCacheHeaders::class,
+    'can' => Authorize::class,
+    'guest' => RedirectIfAuthenticated::class,
+    'password.confirm' => RequirePassword::class,
+    'precognitive' => HandlePrecognitiveRequests::class,
+    'signed' => ValidateSignature::class,
+    'throttle' => ThrottleRequests::class,
+    'verified' => EnsureEmailIsVerified::class,
+  ];
 }
