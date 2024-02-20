@@ -14,8 +14,10 @@
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^4.4.1",
+        "D": "^1.0.0",
         "filepond": "^4.30.4",
         "sortablejs": "^1.15.1",
-        "swiper": "^11.0.4"
+        "swiper": "^11.0.4",
+        "yarn": "^1.22.21"
     }
 }

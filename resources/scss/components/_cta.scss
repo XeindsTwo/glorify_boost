@@ -4,6 +4,7 @@
 
     &__inner {
         @include flex-between(30);
+        align-items: flex-start;
     }
 
     &__content {

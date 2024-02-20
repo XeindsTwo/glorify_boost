@@ -37,6 +37,11 @@ $(document).ready(function () {
 
         let valid = true;
 
+        if (emailValue.trim() === '') {
+            emailErrorParameters.removeClass("error--active");
+            return false;
+        }
+
         if (!regex.test(emailValue)) {
             emailErrorParameters.addClass("error--active");
             return false;
@@ -111,28 +116,28 @@ $(document).ready(function () {
             loginMaxError.removeClass("error--active");
         }
 
-        $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            type: 'POST',
-            url: '/check-login',
-            data: {
-                login: loginValue
-            },
-            success: function (response) {
-                if (response.exists) {
-                    loginCheckError.addClass('error--active');
-                    updateSubmitButtonState();
-                } else {
-                    loginCheckError.removeClass('error--active');
-                    updateSubmitButtonState();
+        setTimeout(() => {
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                url: '/check-login',
+                data: {
+                    login: loginValue
+                },
+                success: function (response) {
+                    if (response.exists) {
+                        loginCheckError.addClass('error--active');
+                    } else {
+                        loginCheckError.removeClass('error--active');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
                 }
-            },
-            error: function (xhr, status, error) {
-                console.error(error);
-            }
-        });
+            });
+        }, 500);
 
         return valid;
     }

@@ -23,8 +23,8 @@
             @if(Auth::check())
                 <div class="header__auth">
                     <div class="header__balance">
-                        <span>10 200,22 ₽</span>
-                        <a class="header__btn-balance btn" href="">Пополнить</a>
+                        <span>{{number_format($balance, 2, ',', ' ')}} ₽</span>
+                        <a class="header__btn-balance btn" href="{{route('profile')}}">Пополнить</a>
                     </div>
                     <div class="header__actions">
                         <a class="header__action header__profile" href="">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
             @else
-                <button class="header__btn btn" id="btn-auth" type="button">Войти</button>
+                <button class="header__btn btn" data-modal="auth" data-target="modal-auth" type="button">Войти</button>
             @endif
         </div>
     </div>
