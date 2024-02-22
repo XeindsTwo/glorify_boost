@@ -7,13 +7,13 @@
             <nav class="header__nav">
                 <ul class="header__list">
                     <li>
-                        <a class="header__link" href="#services">Услуги</a>
+                        <a class="header__link" href="{{route('index')}}#services">Услуги</a>
                     </li>
                     <li>
-                        <a class="header__link" href="#benefits">Премущества</a>
+                        <a class="header__link" href="{{route('index')}}#benefits">Премущества</a>
                     </li>
                     <li>
-                        <a class="header__link" href="#faq">FAQ</a>
+                        <a class="header__link" href="{{route('index')}}#faq">FAQ</a>
                     </li>
                     <li>
                         <button class="header__link" id="btn-contact" type="button">Контакты</button>
@@ -27,7 +27,7 @@
                         <a class="header__btn-balance btn" href="{{route('profile')}}">Пополнить</a>
                     </div>
                     <div class="header__actions">
-                        <a class="header__action header__profile" href="">
+                        <a class="header__action header__profile" href="{{route('profile')}}">
                             <img src="{{asset('static/images/avatar.png')}}" width="44" height="44" alt="аватар">
                         </a>
                         <form method="POST" action="{{ route('logout') }}">

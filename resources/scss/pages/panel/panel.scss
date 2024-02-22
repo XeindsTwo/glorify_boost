@@ -1,0 +1,30 @@
+@import "./components/aside";
+@import "./components/head";
+@import "./components/avatar";
+@import "./components/user-data";
+@import "./components/user-password";
+
+.panel {
+    &__inner {
+        margin-top: 60px;
+        @include flex-between(48);
+    }
+
+    &__content {
+        width: 100%;
+        @include flex-column(50);
+    }
+
+    &__title, &__subtitle {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    &__title {
+        margin-bottom: 8px;
+    }
+
+    &__subtitle {
+        margin-bottom: 20px;
+    }
+}
