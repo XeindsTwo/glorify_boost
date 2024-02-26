@@ -1,17 +1,15 @@
-@include('fragments.head', ['title' => 'Ошибка доступа'])
+@include('fragments/head', ['title' => 'Ошибка доступа'])
 <body class="body">
+@include('fragments.header')
 <section class="error-page indent">
-    <img class="error-page__img error-page__img--one" src="{{asset('static/images/decor-one.svg')}}" alt="декор"
-         width="425" height="270">
-    <img class="error-page__img error-page__img--two" src="{{asset('static/images/decor-two.svg')}}" alt="декор"
-         width="466" height="260">
     <div class="container">
         <div class="error-page__content">
+            <span class="error-page__number">¯\_(ツ)_/¯</span>
             <h1 class="error-page__title">Доступ запрещен</h1>
             <p class="error-page__text">
-                У вас нет необходимых прав для доступа к этой странице.
+                У вас нет необходимых прав для доступа к этой странице
             </p>
-            <a class="error-page__btn" href="{{asset(route('index'))}}">На главную</a>
+            <a class="error-page__btn btn" href="{{asset(route('index'))}}">На главную</a>
         </div>
     </div>
 </section>

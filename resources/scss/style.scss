@@ -5,15 +5,6 @@
 @import 'libs';
 @import 'global';
 
-@import 'home/home';
-@import 'home/socials';
-@import 'home/benefits';
-@import 'home/services';
-@import 'home/faq';
-
-@import 'pages/auth';
-@import 'pages/error-page';
-
 @import 'components/btn';
 @import 'components/header';
 @import 'components/footer';
@@ -23,5 +14,14 @@
 @import 'components/custom-select';
 @import 'components/custom-file';
 @import 'components/cta';
+
+@import 'home/home';
+@import 'home/socials';
+@import 'home/benefits';
+@import 'home/services';
+@import 'home/faq';
+
+@import 'pages/auth';
+@import 'pages/error-page';
 
 @import 'pages/panel/panel';

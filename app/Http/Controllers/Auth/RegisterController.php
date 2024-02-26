@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserBalance;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -34,6 +35,11 @@ class RegisterController extends Controller
         'email' => $validatedData['email'],
         'password' => Hash::make($validatedData['password']),
         'role' => 'USER',
+      ]);
+
+      UserBalance::create([
+          'user_id' => $user->id,
+          'balance' => 0
       ]);
 
       Auth::login($user);

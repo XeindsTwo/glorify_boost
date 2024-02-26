@@ -1,15 +1,15 @@
-@include('fragments.head', ['title' => 'Технические шоколадки'])
+@include('fragments/head', ['title' => 'Технические шоколадки'])
 <body class="body">
+@include('fragments.header')
 <section class="error-page indent">
-    <img class="error-page__img error-page__img--one" src="{{asset('static/images/decor-one.svg')}}" alt="декор" width="425" height="270">
-    <img class="error-page__img error-page__img--two" src="{{asset('static/images/decor-two.svg')}}" alt="декор" width="466" height="260">
     <div class="container">
         <div class="error-page__content">
+            <span class="error-page__number">¯\_(ツ)_/¯</span>
             <h1 class="error-page__title">Время ожидания истекло</h1>
             <p class="error-page__text">
-                Что-то пошло не так в нашем цветочном саду! Наши технические цветочные композиции не успели расцвести
+                Что-то пошло не так в нашей базе! Наши специалисты уже решают проблему
             </p>
-            <a class="error-page__btn" href="{{asset(route('index'))}}">На главную</a>
+            <a class="error-page__btn btn" href="{{asset(route('index'))}}">На главную</a>
         </div>
     </div>
 </section>

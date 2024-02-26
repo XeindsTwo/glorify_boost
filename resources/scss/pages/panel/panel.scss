@@ -4,6 +4,8 @@
 @import "./components/user-data";
 @import "./components/user-password";
 
+@import "./balance/balance";
+
 .panel {
     &__inner {
         margin-top: 60px;

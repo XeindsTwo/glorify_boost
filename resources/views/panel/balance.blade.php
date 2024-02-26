@@ -1,4 +1,4 @@
-@include('fragments.head', ['title' => 'Профиль | GlorifyBoost'])
+@include('fragments.head', ['title' => 'Пополнение баланса | GlorifyBoost'])
 <body class="body">
 @include('fragments.header')
 <section class="container">
@@ -20,14 +20,14 @@
                 </svg>
                 Мои задания
             </a>
-            <a class="control__link" href="{{route('balance')}}">
+            <span class="control__link control__link--active">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M14.1755 4.22225C14.1766 2.99445 11.6731 2 8.58832 2C5.50357 2 3.00224 2.99557 3 4.22225M3 4.22225C3 5.45004 5.50133 6.44449 8.58832 6.44449C11.6753 6.44449 14.1766 5.45004 14.1766 4.22225L14.1766 12.8445M3 4.22225V17.5556C3.00112 18.7834 5.50245 19.7779 8.58832 19.7779C10.0849 19.7779 11.4361 19.5412 12.4387 19.1601M3.00112 8.66672C3.00112 9.89451 5.50245 10.889 8.58944 10.889C11.6764 10.889 14.1778 9.89451 14.1778 8.66672M12.5057 14.6946C11.4976 15.0891 10.115 15.3335 8.58832 15.3335C5.50245 15.3335 3.00112 14.3391 3.00112 13.1113M20.5272 13.4646C22.4909 15.4169 22.4909 18.5836 20.5272 20.5358C18.5635 22.4881 15.3781 22.4881 13.4144 20.5358C11.4507 18.5836 11.4507 15.4169 13.4144 13.4646C15.3781 11.5124 18.5635 11.5124 20.5272 13.4646Z"
                         stroke="#6D7078" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 Пополнение
-            </a>
+            </span>
             <a class="control__link" href="">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -36,7 +36,7 @@
                 </svg>
                 Рефералы
             </a>
-            <span class="control__link control__link--active">
+            <a class="control__link" href="{{route('profile')}}">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_48_14833)">
                         <path
@@ -53,71 +53,71 @@
                     </defs>
                 </svg>
                 Настройки
-            </span>
+            </a>
         </aside>
         <div class="panel__content">
             <div class="panel-head">
-                <h1 class="panel-head__title">Настройки</h1>
+                <h1 class="panel-head__title">Пополнение</h1>
                 <p class="panel-head__text">
-                    В данном разделе предоставляются возможности для настройки имени, изменения пароля и других
-                    параметров.
+                    В данном разделе предоставляются возможности для пополнения баланса,
+                    отслеживания историй баланса и просто увидеть красоту
                 </p>
-                <button class="panel-head__btn btn" disabled type="button">Сохранить изменения</button>
-            </div>
-            <div class="panel-avatar">
-                <h2 class="panel__subtitle">Аватарка профиля</h2>
-                <div class="panel-avatar__avatar">
-                    <img src="{{asset('static/images/avatar.png')}}" width="64" height="64" alt="аватар пользователя">
-                    <button class="panel-avatar__change" type="button">
-                        Загрузить <br> новую фотографию
-                    </button>
-                </div>
-            </div>
-            <div class="panel-data">
-                <h3 class="panel__subtitle">Информация аккаунта</h3>
-                <ul class="panel-data__list">
-                    <li class="panel-data__item">
-                        <span class="panel-data__name">Имя</span>
-                        <span class="panel-data__text">{{Auth::user()->name}}</span>
-                        <button class="panel-data__change" type="button">Изменить</button>
-                    </li>
-                    <li class="panel-data__item">
-                        <span class="panel-data__name">ID</span>
-                        <span class="panel-data__text">{{Auth::user()->id}}</span>
-                    </li>
-                    <li class="panel-data__item">
-                        <span class="panel-data__name">Почта</span>
-                        <span class="panel-data__text">{{Auth::user()->email}}</span>
-                        <button class="panel-data__change" type="button">Изменить</button>
-                    </li>
-                </ul>
-            </div>
-            <div class="panel-password">
-                <h3 class="panel__subtitle">Изменить пароль</h3>
-                <form class="panel-password__form" action="">
-                    <div class="panel-password__item">
-                        <label class="label" for="old_password">Старый пароль</label>
-                        <input class="input" type="password" id="old_password" name="old_password"
-                               required placeholder="Введите пароль">
-                    </div>
-                    <div class="panel-password__item">
-                        <label class="label" for="new_password">Новый пароль</label>
-                        <span class="error" id="error_new-password">Пароли не совпадают</span>
-                        <span class="error" id="error_old-password">Новый пароль не должен быть похож на старый</span>
-                        <span class="error" id="passwordError">Пароль не должен иметь кириллицу</span>
-                        <span class="error" id="passwordLengthError">Минимальное количество символов - 8</span>
-                        <span class="error" id="passwordMaxError">Максимальное количество символов - 60</span>
-                        <input class="input" type="password" id="new_password" name="new_password"
-                               required placeholder="Введите пароль">
-                    </div>
-                    <div class="panel-password__item">
-                        <label class="label" for="repeat_password">Повторите пароль</label>
-                        <input class="input" type="password" id="repeat_password" name="repeat_password"
-                               required placeholder="Введите пароль">
-                    </div>
+                <form id="deposit-form" method="post" action="{{route('deposit')}}">
+                    @csrf
+                    <label class="label" for="amount">Сумма для пополнения</label>
+                    <input class="input" id="amount" name="amount" min="50" step="0.01" type="number" required>
+                    <button class="panel-head__btn btn" type="submit">Пополнить баланс</button>
                 </form>
+                @if($transactions->isEmpty())
+                    <p class="panel-balance__empty">На данный момент пополнений еще не имеется</p>
+                @else
+                    <table class="panel-balance__table">
+                        <thead>
+                        <tr class="panel-balance__head">
+                            <th>Тип</th>
+                            <th>Сумма</th>
+                            <th>ID</th>
+                            <th>Дата</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($transactions as $transaction)
+                            <tr class="panel-balance__head">
+                                <td>{{ $transaction->type }}</td>
+                                <td>{{ $transaction->amount }}</td>
+                                <td>{{ $transaction->id }}</td>
+                                <td>{{ $transaction->created_at->formatLocalized('%e %B %Y') }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                @endif
             </div>
         </div>
     </div>
 </section>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const depositForm = document.querySelector('#deposit-form');
+        depositForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = new FormData(depositForm);
+
+            fetch(depositForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                });
+        });
+    });
+</script>

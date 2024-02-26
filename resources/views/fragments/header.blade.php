@@ -24,7 +24,7 @@
                 <div class="header__auth">
                     <div class="header__balance">
                         <span>{{number_format($balance, 2, ',', ' ')}} ₽</span>
-                        <a class="header__btn-balance btn" href="{{route('profile')}}">Пополнить</a>
+                        <a class="header__btn-balance btn" href="{{route('balance')}}">Пополнить</a>
                     </div>
                     <div class="header__actions">
                         <a class="header__action header__profile" href="{{route('profile')}}">

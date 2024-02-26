@@ -16,10 +16,14 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('*', function ($view) {
-           if (Auth::check()) {
-               $balance = Auth::user()->balance;
-               $view->with('balance', $balance);
-           }
+            if (Auth::check()) {
+                $user = Auth::user();
+                $userBalance = $user->balance;
+                $balance = $userBalance->getBalance();
+                $view->with('balance', $balance);
+            }
         });
+
+        setlocale(LC_TIME, 'ru_RU.UTF-8');
     }
 }
