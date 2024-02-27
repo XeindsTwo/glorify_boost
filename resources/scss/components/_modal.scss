@@ -139,6 +139,12 @@
     &__btn-auth {
         width: 100%;
         margin-bottom: 20px;
+
+        &:disabled {
+            pointer-events: none;
+            user-select: none;
+            opacity: .25;
+        }
     }
 
     &__captcha {
@@ -148,6 +154,7 @@
 
     &__refresh {
         display: flex;
+
         &:hover {
             svg path {
                 stroke: $white;

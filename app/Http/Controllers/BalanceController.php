@@ -31,7 +31,7 @@ class BalanceController extends Controller
 
             $transaction->save();
             $user->balance()->increment('balance', $amount);
-            return response()->json(['message' => 'Баланс успешно пополнен']);
+            return response()->json(['amount' => $amount]);
         } else {
             return response()->json(['error' => 'Ошибка при пополнении баланса']);
         }

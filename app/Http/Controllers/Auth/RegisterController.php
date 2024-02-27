@@ -25,7 +25,7 @@ class RegisterController extends Controller
       $validatedData = $request->validate([
         'login' => 'required|string|min:5|max:60|unique:users|regex:/^[a-zA-Z0-9_]+$/',
         'name' => 'required|string|min:2|max:50|regex:/^[A-Za-zА-Яа-яЁё\-]+$/u',
-        'email' => 'required|email|unique:users,email',
+        'email' => 'required|email|max:80|unique:users,email',
         'password' => 'required|string|min:8|max:60',
       ]);
 

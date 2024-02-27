@@ -33,7 +33,7 @@
             }
         }
 
-        &--active {
+        &.active {
             background-color: $primary800;
             color: $primary400;
             pointer-events: none;

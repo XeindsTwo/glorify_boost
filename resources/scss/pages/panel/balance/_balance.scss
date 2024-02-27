@@ -1,20 +1,62 @@
 .panel-balance {
+    &__form {
+        margin-top: 40px;
+    }
+
+    &__input {
+        margin-bottom: 15px;
+    }
+
     &__empty {
         margin-top: 50px;
         color: $gray;
     }
 
     &__table {
+        font-size: 14px;
         margin-top: 50px;
         width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid $black600;
         @include flex-column();
+        margin-bottom: 50px;
     }
 
     &__head {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         text-align: left;
-        border-radius: 4px;
-        padding: 20px;
+        color: $white;
+        font-weight: 500;
+        background-color: $black600;
+
+        th {
+            padding: 13px 20px;
+        }
+    }
+
+    &__body {
+        @include flex-column();
+
+        td {
+            padding: 24px 20px;
+        }
+    }
+
+    &__item {
+        background-color: transparent;
+        color: $gray300;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $black600;
+        }
+    }
+
+    &__type {
+
+        &--deposit {
+            color: $green300;
+        }
     }
 }
