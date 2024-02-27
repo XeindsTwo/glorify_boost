@@ -19,6 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'balance',
         'password',
         'role',
+        'avatar'
     ];
 
     public function balance(): HasOne

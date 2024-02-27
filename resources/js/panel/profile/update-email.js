@@ -1,4 +1,4 @@
-import {closeModal, handleModalClose, openModal} from '../components/modal-functions.js';
+import {closeModal, handleModalClose, openModal} from '../../components/modal-functions.js';
 
 const modalUpdateEmail = document.getElementById('modal-update-email');
 const openModalUpdateEmail = document.getElementById('btn-email');

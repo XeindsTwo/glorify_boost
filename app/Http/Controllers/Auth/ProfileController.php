@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProfileController extends Controller
 {
@@ -31,5 +33,23 @@ class ProfileController extends Controller
         $user->save();
 
         return response()->json(['success' => 'Почта успешно обновлена']);
+    }
+
+    public function updateAvatar(Request $request)
+    {
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        $user = Auth::user();
+        if ($user->avatar) {
+            Storage::delete('public/avatars' . $user->avatar);
+        }
+
+        $avatarName = Str::random(20) . '.' . $request->file('avatar')->getClientOriginalExtension();
+        $request->file('avatar')->storeAs('public/avatars/', $avatarName);
+        $user->avatar = $avatarName;
+        $user->save();
+        return response()->json(['success' => 'Аватар успешно обновлен']);
     }
 }

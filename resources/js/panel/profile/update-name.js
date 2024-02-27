@@ -1,4 +1,4 @@
-import {closeModal, handleModalClose, openModal} from '../components/modal-functions.js';
+import {closeModal, handleModalClose, openModal} from '../../components/modal-functions.js';
 
 const modalUpdateName = document.getElementById('modal-update-name');
 const openModalUpdateName = document.getElementById('btn-name');

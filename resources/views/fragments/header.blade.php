@@ -28,7 +28,13 @@
                     </div>
                     <div class="header__actions">
                         <a class="header__action header__profile" href="{{route('profile')}}">
-                            <img src="{{asset('static/images/avatar.png')}}" width="44" height="44" alt="аватар">
+                            @if(Auth::user()->avatar)
+                                <img src="{{ asset('path/to/avatars/' . Auth::user()->avatar) }}" width="44" height="44"
+                                     alt="аватар">
+                            @else
+                                <img src="{{ asset('static/images/avatar.png') }}" width="44" height="44"
+                                     alt="аватар">
+                            @endif
                         </a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

@@ -15,12 +15,19 @@
             </div>
             <div class="panel-avatar">
                 <h2 class="panel__subtitle">Аватарка профиля</h2>
-                <div class="panel-avatar__avatar">
-                    <img src="{{asset('static/images/avatar.png')}}" width="64" height="64" alt="аватар пользователя">
-                    <button class="panel-avatar__change" type="button">
+                <form class="panel-avatar__avatar">
+                    @csrf
+                    @if(Auth::user()->avatar)
+                        <img src="{{ asset('path/to/avatars/' . Auth::user()->avatar) }}" width="64" height="64"
+                             alt="аватар пользователя" id="avatarImage">
+                    @else
+                        <img src="{{ asset('static/images/avatar.png') }}" width="64" height="64"
+                             alt="аватар пользователя" id="avatarImage">
+                    @endif
+                    <button class="panel-avatar__change" id="changeAvatarBtn" type="button">
                         Загрузить <br> новую фотографию
                     </button>
-                </div>
+                </form>
             </div>
             <div class="panel-data">
                 <h3 class="panel__subtitle">Информация аккаунта</h3>
@@ -121,5 +128,6 @@
     </form>
 </div>
 </body>
-@vite(['resources/js/panel/update-name.js'])
-@vite(['resources/js/panel/update-email.js'])
+@vite(['resources/js/panel/profile/update-name.js'])
+@vite(['resources/js/panel/profile/update-email.js'])
+@vite(['resources/js/panel/profile/update-avatar.js'])

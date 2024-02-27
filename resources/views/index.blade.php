@@ -18,6 +18,6 @@
 @if(!\Illuminate\Support\Facades\Auth::check())
     @vite(['resources/js/app.js'])
     @vite(['resources/js/register.js'])
-    @vite(['resources/js/captcha.js'])
+    @vite(['resources/js/components/captcha.js'])
 @endif
 </body>

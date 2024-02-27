@@ -23,7 +23,5 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('balance', $balance);
             }
         });
-
-        setlocale(LC_TIME, 'ru_RU.UTF-8');
     }
 }
