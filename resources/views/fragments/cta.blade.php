@@ -8,11 +8,12 @@
                 </p>
             </div>
             @if(!\Illuminate\Support\Facades\Auth::check())
-                <button class="btn" type="button" data-modal="register" data-target="modal-register">Зарегистрироваться</button>
+                <button class="btn" type="button" data-modal="register" data-target="modal-register">
+                    Зарегистрироваться
+                </button>
             @else
                 <a class="btn" href="{{route('profile')}}">Перейти в панель</a>
             @endif
-
         </div>
     </div>
 </section>

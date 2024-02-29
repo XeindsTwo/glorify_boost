@@ -23,4 +23,16 @@
             outline: 1px solid;
         }
     }
+
+    &__img {
+        @include objectCoverBg;
+        border-radius: 12px;
+    }
+
+    &__success {
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: $green300;
+        display: none;
+    }
 }

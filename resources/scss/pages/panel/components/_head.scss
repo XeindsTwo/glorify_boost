@@ -11,13 +11,9 @@
         color: $gray500;
         font-size: 14px;
         margin-bottom: 24px;
-    }
 
-    &__btn {
-        &:disabled {
-            pointer-events: none;
-            user-select: none;
-            opacity: .25;
+        &--bottom {
+            margin-bottom: 0;
         }
     }
 }

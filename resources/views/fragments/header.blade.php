@@ -27,13 +27,13 @@
                         <a class="header__btn-balance btn" href="{{route('balance')}}">Пополнить</a>
                     </div>
                     <div class="header__actions">
-                        <a class="header__action header__profile" href="{{route('profile')}}">
+                        <a class="header__action header__profile" href="{{ route('profile') }}">
                             @if(Auth::user()->avatar)
-                                <img src="{{ asset('path/to/avatars/' . Auth::user()->avatar) }}" width="44" height="44"
-                                     alt="аватар">
+                                <img src="{{ asset('storage/avatars/' . Auth::user()->avatar) }}" width="44" height="44"
+                                     alt="аватар" id="smallAvatarImage">
                             @else
-                                <img src="{{ asset('static/images/avatar.png') }}" width="44" height="44"
-                                     alt="аватар">
+                                <img src="{{ asset('static/images/avatar.png') }}" width="44" height="44" alt="аватар"
+                                     id="smallAvatarImage">
                             @endif
                         </a>
                         <form method="POST" action="{{ route('logout') }}">
