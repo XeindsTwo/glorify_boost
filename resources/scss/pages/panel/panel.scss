@@ -3,8 +3,9 @@
 @import "./components/avatar";
 @import "./components/user-data";
 @import "./components/user-password";
+@import "./components/referrals";
 
-@import "./balance/balance";
+@import "balance";
 
 .panel {
     &__inner {

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'checkdb'])->group(function () {
     Route::get('/profile', function () {
         return view('panel.profile');
     })->name('profile');

@@ -1,0 +1,102 @@
+.panel-referrals {
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 24px;
+        margin-bottom: 24px;
+    }
+
+    &__item {
+        background-color: $black600;
+        border-radius: 12px;
+        padding: 20px;
+        @include flex-column(14);
+    }
+
+    &__digital {
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 1;
+    }
+
+    &__subtext {
+        color: $gray500;
+        font-weight: 500;
+    }
+
+    &__bonuses {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        max-width: 530px;
+        margin-bottom: 40px;
+    }
+
+    &__bonus {
+        padding: 4px 12px;
+        font-size: 14px;
+        color: $primary300;
+        background-color: $primary700;
+        border-radius: 16px;
+    }
+
+    &__link {
+        margin-bottom: 40px;
+        max-width: 460px;
+    }
+
+    &__info {
+        font-size: 14px;
+        color: $gray500;
+        margin-top: -9px;
+        margin-bottom: 24px;
+    }
+
+    &__field {
+        @include flex-between-center-gap(10);
+        width: 100%;
+        color: $gray500;
+        padding: 11px 14px;
+        border-radius: 8px;
+        border: 1px solid $black500;
+    }
+
+    &__description {
+        max-width: 645px;
+        padding-bottom: 50px;
+    }
+
+    &__text {
+        color: $gray500;
+        @include flex-column(18);
+    }
+
+    &__btn {
+        @include flex-center;
+        border-radius: 5px;
+        transition: outline .4s;
+
+        &:hover {
+            svg g path {
+                stroke: $green400;
+            }
+        }
+
+        &:focus {
+            outline: 1px solid $green400;
+        }
+    }
+}
+
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+#mySVG {
+    cursor: pointer;
+}
+
+.exploded {
+    animation: explode 0.5s forwards;
+}
