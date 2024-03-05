@@ -36,4 +36,9 @@ class BalanceController extends Controller
             return response()->json(['error' => 'Ошибка при пополнении баланса']);
         }
     }
+
+    public function getAllTransactions() {
+        $transactions = BalanceTransaction::orderBy('created_at', 'desc')->get();
+        return view('admin.manage_transactions', ['transactions' => $transactions]);
+    }
 }

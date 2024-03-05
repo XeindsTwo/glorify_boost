@@ -14,6 +14,11 @@
     pointer-events: none;
     transition: all .4s;
     z-index: 300;
+    overflow: hidden;
+
+    &--long {
+        max-width: 800px;
+    }
 
     &--active {
         transform: translate(-50%, -50%);
@@ -26,7 +31,7 @@
         display: inline-block;
         font-size: 24px;
         margin-bottom: 14px;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 1.2;
 
         &--bottom {
@@ -38,6 +43,10 @@
         max-width: 420px;
         margin-bottom: 24px;
         color: #667085;
+
+        span {
+            color: $primary300;
+        }
     }
 
     &__support {
@@ -100,22 +109,49 @@
     }
 
     &__close {
-        padding: 1px;
-        display: flex;
-        transition: transform .7s, opacity .4s;
+        width: 48px;
+        height: 48px;
         position: absolute;
-        right: 25px;
+        top: 5px;
+        right: 5px;
+        z-index: 2;
+        outline: 1px solid transparent;
+        border-radius: 4px;
 
         &:hover {
-            transform: rotate(180deg);
+            color: $primary400;
 
-            svg path {
-                stroke: $primary300;
+            &::before {
+                transform: translate(-50%, -50%) rotate(135deg);
+            }
+
+            &::after {
+                transform: translate(-50%, -50%) rotate(45deg);
             }
         }
 
         &:focus {
-            transform: rotate(180deg);
+            outline-color: $primary400;
+        }
+
+        &::before,
+        &::after {
+            display: block;
+            content: "";
+            width: 35%;
+            height: 1px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            background: currentColor;
+            border-radius: 4px;
+            transition: transform .4s;
+            will-change: transform;
+        }
+
+        &::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
         }
     }
 
@@ -134,6 +170,12 @@
     &__list {
         @include flex-column(20);
         margin-bottom: 24px;
+
+        &--grid {
+            display: grid;
+            grid-gap: 30px 40px;
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     &__btn-auth {
@@ -159,6 +201,26 @@
             svg path {
                 stroke: $white;
             }
+        }
+    }
+
+    &__buttons {
+        @include flex-align-center(15);
+    }
+
+    &__btn {
+        margin-top: 10px;
+
+        &--cancel, &--confirm {
+            border-radius: 4px;
+        }
+
+        &--cancel {
+            background-color: #652020;
+        }
+
+        &--confirm {
+            background-color: #0f6651;
         }
     }
 }

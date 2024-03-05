@@ -31,6 +31,12 @@
         font-weight: 500;
         background-color: $black600;
 
+        &.admin {
+            grid-template-columns: repeat(6, 1fr);
+            margin: 0;
+            padding: 0;
+        }
+
         th {
             padding: 13px 20px;
         }
@@ -57,6 +63,22 @@
 
         &--deposit {
             color: $green300;
+        }
+    }
+
+    &__btn {
+        color: $red400;
+        transition: color .4s, border .4s;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        padding: 2px;
+
+        &:hover {
+            color: $red600;
+        }
+
+        &:focus {
+            border-color: inherit;
         }
     }
 }

@@ -16,7 +16,7 @@
     border-radius: 8px 8px 0 0;
 
     .custom-select__current {
-      border-color: $accent;
+      border-color: $primary300;
 
       &::after {
         transform: rotate(-180deg) translateY(50%);
@@ -27,7 +27,7 @@
       pointer-events: auto;
       visibility: visible;
       opacity: 1;
-      background-color: $white;
+      background-color: $black700;
       z-index: 100;
     }
   }
@@ -42,7 +42,7 @@
     &::after {
       content: "";
       position: absolute;
-      right: 10px;
+      right: 5px;
       top: 50%;
       transform: translateY(-50%);
       width: 13px;
@@ -57,11 +57,11 @@
 
   &__list {
     font-size: 16px;
-    border: 1px solid #b8c1c0;
+    border: 1px solid $black500;
     width: 100.5%;
     position: absolute;
     left: -1px;
-    top: 59px;
+    top: 58px;
     z-index: 2;
     overflow: hidden;
     border-radius: 0 0 8px 8px;
@@ -86,11 +86,11 @@
     transition: color .3s;
 
     &:hover {
-      color: $accent;
+      color: $primary300;
     }
 
     &:not(:last-child) {
-      border-bottom: 1px solid #b8c1c0;
+      border-bottom: 1px solid $gray600;
     }
   }
 }

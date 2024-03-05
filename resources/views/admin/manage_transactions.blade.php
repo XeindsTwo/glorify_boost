@@ -1,17 +1,17 @@
-@include('fragments/head', ['title' => 'GlorifyBoost | Управление пользователями'])
+@include('fragments/head', ['title' => 'GlorifyBoost | Работа с транзакциями'])
 <body class="body">
 @include('fragments.header')
 <section class="admin">
     <div class="container container--admin">
         <div class="admin__management">
-            <span class="admin__link active">
+            <a class="admin__link" href="{{route('admin.users.index')}}">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13M16 3.13C16.8604 3.3503 17.623 3.8507 18.1676 4.55231C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89317 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z"
                         stroke="#6D7078" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 Управление пользователями
-            </span>
+            </a>
             <a class="admin__link" href="">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -20,14 +20,14 @@
                 </svg>
                 Управление заказами
             </a>
-            <a class="admin__link" href="{{route('transactions')}}">
+            <span class="admin__link active">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M14.1755 4.22225C14.1766 2.99445 11.6731 2 8.58832 2C5.50357 2 3.00224 2.99557 3 4.22225M3 4.22225C3 5.45004 5.50133 6.44449 8.58832 6.44449C11.6753 6.44449 14.1766 5.45004 14.1766 4.22225L14.1766 12.8445M3 4.22225V17.5556C3.00112 18.7834 5.50245 19.7779 8.58832 19.7779C10.0849 19.7779 11.4361 19.5412 12.4387 19.1601M3.00112 8.66672C3.00112 9.89451 5.50245 10.889 8.58944 10.889C11.6764 10.889 14.1778 9.89451 14.1778 8.66672M12.5057 14.6946C11.4976 15.0891 10.115 15.3335 8.58832 15.3335C5.50245 15.3335 3.00112 14.3391 3.00112 13.1113M20.5272 13.4646C22.4909 15.4169 22.4909 18.5836 20.5272 20.5358C18.5635 22.4881 15.3781 22.4881 13.4144 20.5358C11.4507 18.5836 11.4507 15.4169 13.4144 13.4646C15.3781 11.5124 18.5635 11.5124 20.5272 13.4646Z"
                         stroke="#6D7078" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 Работа с транзакциями
-            </a>
+            </span>
             <a class="admin__link" href="">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_48_14833)">
@@ -47,100 +47,55 @@
                 Редактирование новых заказов
             </a>
         </div>
-        <h1 class="admin__title">Управление пользователями</h1>
-        <button class="admin-users__btn" id="createUserBtn" type="button">Создать пользователя</button>
+        <h1 class="admin__title">Работа с транзакциями</h1>
         <form class="admin-users__search" action="#" method="GET" id="searchForm">
-            <input class="input" type="text" id="query" name="query" placeholder="Поиск по логину, имени или почте">
+            <input class="input" type="text" id="query" name="query" placeholder="Поиск платежа по ID">
         </form>
-        <ul class="admin-users__list" id="userListContainer">
-            @foreach($users as $user)
-                <li class="admin-users__item" data-user-id="{{$user->id}}">
-                    <p class="admin-users__login"><span>{{$user->login}}</span></p>
-                    @if($user->id !== auth()->id())
-                        <a class="admin-users__edit" href="{{route('admin.users.edit', ['user' => $user])}}">
-                            Редактировать
-                        </a>
-                    @endif
-                    <div class="admin-users__content">
-                        <p>Имя: {{$user->name}}</p>
-                        <p>Почта: {{$user->email}}</p>
-                        <p>Роль: {{$user->role}}</p>
-                    </div>
-                    @if($user->id !== auth()->id())
-                        <div class="admin-users__actions">
-                            <button class="admin-users__action admin-users__action--reset" type="button">Сбросить
-                                пароль
-                            </button>
-                            <button class="admin-users__action admin-users__action--delete" type="button"
-                                    data-user-id="{{$user->id}}">
-                                Удалить аккаунт
-                            </button>
-                        </div>
-                    @endif
-                </li>
-            @endforeach
-        </ul>
+        @if($transactions->isEmpty())
+            <p class="panel-balance__empty">На данный момент пополнений еще не имеется</p>
+        @else
+            <table class="panel-balance__table">
+                <thead>
+                <tr class="panel-balance__head admin">
+                    <th>Идентификатор</th>
+                    <th>Тип</th>
+                    <th>Сумма</th>
+                    <th>Дата пополнения</th>
+                    <th>Пользователь</th>
+                    <th>Действия</th>
+                </tr>
+                </thead>
+                <tbody class="panel-balance__body">
+                @foreach($transactions as $transaction)
+                    <tr class="panel-balance__head panel-balance__item admin">
+                        <td>{{ $transaction->id }}</td>
+                        <td class="panel-balance__type @if($transaction->type === 'Пополнение') panel-balance__type--deposit @endif">
+                            {{ $transaction->type }}
+                        </td>
+                        <td>{{number_format($transaction->amount, 2, ',', ' ')}} ₽</td>
+                        <td>{{ $transaction->created_at->isoFormat('D MMM YYYY') }}</td>
+                        <td>{{ $transaction->user->login }}</td>
+                        <td>
+                            <button class="panel-balance__btn cancel-payment-btn" data-transaction-id="{{$transaction->id}}" type="button">Отменить платеж</button>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        @endif
     </div>
 </section>
 </body>
-<div class="modal modal--long" id="modalAddUser">
-    <button class="modal__close" id="modalCloseAddUser" type="button"></button>
-    <h3 class="modal__title modal__title--bottom">Создание пользователя</h3>
-    <form action="{{ route('admin.users.store') }}" id="userForm" method="POST">
-        @csrf
-        <ul class="modal__list modal__list--grid">
-            <li class="modal__item">
-                <label class="label" for="name">Имя</label>
-                <span class="error" id="nameError">Имя не должно содержать запрещенные символы</span>
-                <span class="error" id="nameMinError">Мин. количество символов - 2</span>
-                <span class="error" id="nameMaxError">Макс. количество символов - 50</span>
-                <input class="input" type="text" id="name" name="name" required placeholder="Введите имя">
-            </li>
-            <li class="modal__item">
-                <label class="label" for="login">Логин</label>
-                <span class="error" id="loginCheckError">Логин уже используется</span>
-                <span class="error" id="loginError">Логин не должен иметь запрещенные символы</span>
-                <span class="error" id="loginLengthError">Минимальное количество символов - 5</span>
-                <span class="error" id="loginMaxError">Максимальное количество символов - 60</span>
-                <input class="input" type="text" id="login" name="login" required placeholder="Введите логин">
-            </li>
-            <li class="modal__item">
-                <label class="label" for="email">Почта</label>
-                <span class="error" id="emailCheckError">Почта уже используется</span>
-                <span class="error" id="emailErrorParameters">Почта не соответствует параметрам</span>
-                <span class="error" id="emailLengthError">Макс. количество символов - 80</span>
-                <input class="input" type="email" id="email" name="email" required placeholder="Введите почту">
-            </li>
-            <li class="modal__item">
-                <label class="label" for="password">Пароль</label>
-                <span class="error" id="passwordError">Пароль не должен иметь кириллицу</span>
-                <span class="error" id="passwordLengthError">Минимальное количество символов - 8</span>
-                <span class="error" id="passwordMaxError">Максимальное количество символов - 60</span>
-                <input class="input" type="password" id="password" name="password" required
-                       placeholder="Введите пароль">
-            </li>
-            <li class="modal__item">
-                <label class="label" for="password">Роль</label>
-                <select class="select" id="role" name="role">
-                    <option value="USER" {{ old('role') === 'USER' ? 'selected' : '' }}>Пользователь</option>
-                    <option value="ADMIN" {{ old('role') === 'ADMIN' ? 'selected' : '' }}>Администратор</option>
-                </select>
-            </li>
-        </ul>
-        <button class="modal__btn btn" id="createBtnUser" type="submit">Создать пользователя</button>
-    </form>
-</div>
-<div class="modal" id="modalDeleteUser">
-    <button class="modal__close" id="modalCloseDeleteUser" type="button"></button>
-    <h3 class="modal__title">Удаление пользователя</h3>
+
+<div class="modal" id="modalCancelPayment">
+    <h3 class="modal__title">Отмена пополнения</h3>
     <p class="modal__text">
-        Вы действительно хотите удалить пользователя <span id="loginDeleteUser"></span>? Удаление приведет к удалению
-        всех его заказов и информации, а также возможно к уничтожению данных о транзакциях
+        Вы действительно хотите отменить транзакцию у пользователя <span id="loginUser"></span>?
+        Отмена приведёт к списанию баланса у пользователя. Отменить действие будет невозможно
     </p>
     <div class="modal__buttons">
-        <button class="btn modal__btn--cancel" id="modalCancelDeleteUser" type="button">Отменить</button>
-        <button class="btn modal__btn--confirm" id="confirmDeleteUser" type="submit">Да, удалить</button>
+        <button class="btn modal__btn--cancel" id="modalCancel" type="button">Закрыть окно</button>
+        <button class="btn modal__btn--confirm" id="modalConfirm" type="submit">Да, отменить</button>
     </div>
 </div>
-@vite(['resources/js/components/custom-select.js'])
-@vite(['resources/js/user.js?type=module'])
+@vite(['resources/js/user/transactions.js']);

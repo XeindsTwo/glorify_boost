@@ -49,4 +49,4 @@
     </div>
 </section>
 </body>
-@vite(['resources/js/panel/balance.js'])
+@vite(['resources/js/panel/transactions.js'])
