@@ -88,10 +88,6 @@
 </section>
 <div class="modal" id="modal-update-name">
     <button class="modal__close" type="button" id="close-name">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 6L6 18M6 6L18 18" stroke="#545860" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round"></path>
-        </svg>
     </button>
     <span class="modal__title modal__title--bottom">Изменение имени</span>
     <form class="modal__form" id="formUpdateName" method="post" action="{{route('profile.update-name')}}">
@@ -114,10 +110,6 @@
 </div>
 <div class="modal" id="modal-update-email">
     <button class="modal__close" type="button" id="close-email">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 6L6 18M6 6L18 18" stroke="#545860" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round"></path>
-        </svg>
     </button>
     <span class="modal__title modal__title--bottom">Изменение почты</span>
     <form class="modal__form" id="formUpdateEmail" method="post" action="{{route('profile.update-email')}}">

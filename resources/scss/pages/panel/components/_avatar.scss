@@ -1,38 +1,38 @@
 .panel-avatar {
-    &__avatar {
-        border-radius: 12px;
-        overflow: hidden;
-        display: flex;
-        gap: 18px;
-        align-items: center;
+  &__avatar {
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+
+  &__change {
+    transition: color .4s, outline .4s;
+    color: $gray400;
+    font-size: 14px;
+    border-radius: 4px;
+    align-self: center;
+    text-align: left;
+
+    &:hover {
+      color: $primary300;
     }
 
-    &__change {
-        transition: color .4s, outline .4s;
-        color: $gray400;
-        font-size: 14px;
-        border-radius: 4px;
-        align-self: center;
-        text-align: left;
-
-        &:hover {
-            color: $primary300;
-        }
-
-        &:focus {
-            outline: 1px solid;
-        }
+    &:focus {
+      outline: 1px solid;
     }
+  }
 
-    &__img {
-        @include objectCoverBg;
-        border-radius: 12px;
-    }
+  &__img {
+    @include objectCoverBg;
+    border-radius: 12px;
+  }
 
-    &__success {
-        margin-bottom: 8px;
-        font-size: 14px;
-        color: $green300;
-        display: none;
-    }
+  &__success {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: $green300;
+    display: none;
+  }
 }

@@ -1,33 +1,33 @@
 .error-page {
-    &__content {
-        margin: 0 auto;
-        text-align: center;
-    }
+  &__content {
+    margin: 0 auto;
+    text-align: center;
+  }
 
-    &__number {
-        font-size: 60px;
-        font-weight: 500;
-        color: $primary300;
-        margin-bottom: 40px;
-        display: block;
-    }
+  &__number {
+    font-size: 60px;
+    font-weight: 500;
+    color: $primary300;
+    margin-bottom: 40px;
+    display: block;
+  }
 
-    &__title {
-        margin-bottom: 10px;
-        font-weight: 400;
-        font-size: 34px;
-        line-height: 1.2;
-    }
+  &__title {
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 1.2;
+  }
 
-    &__text {
-        max-width: 300px;
-        margin: 0 auto 30px;
-        color: rgba($white, .4);
-    }
+  &__text {
+    max-width: 300px;
+    margin: 0 auto 30px;
+    color: rgba($white, .4);
+  }
 
-    &__btn {
-        font-weight: 400;
-        padding: 14px 35px;
-        display: inline-block;
-    }
+  &__btn {
+    font-weight: 400;
+    padding: 14px 35px;
+    display: inline-block;
+  }
 }

@@ -1,62 +1,62 @@
 .control {
-    max-width: 270px;
-    width: 100%;
-    @include flex-column(4);
+  max-width: 270px;
+  width: 100%;
+  @include flex-column(4);
 
-    &__link {
-        @include flex-align-center(12);
-        padding: 12px;
-        color: $gray500;
-        transition: color .4s, background-color .4s, opacity .4s;
-        border-radius: 6px;
-        font-weight: 600;
-        line-height: 1.3;
+  &__link {
+    @include flex-align-center(12);
+    padding: 12px;
+    color: $gray500;
+    transition: color .4s, background-color .4s, opacity .4s;
+    border-radius: 6px;
+    font-weight: 600;
+    line-height: 1.3;
 
-        &:hover {
-            background-color: $primary800;
-            color: $primary400;
+    &:hover {
+      background-color: $primary800;
+      color: $primary400;
 
-            svg path {
-                stroke: $primary400;
-            }
-        }
-
-        &:focus {
-            opacity: .5;
-        }
-
-        &:nth-child(2) {
-            &:hover {
-                svg path {
-                    stroke: transparent;
-                    fill: $primary400;
-                }
-            }
-        }
-
-        &.active {
-            background-color: $primary800;
-            color: $primary400;
-            pointer-events: none;
-
-            svg path {
-                stroke: $primary400;
-            }
-
-            &:nth-child(2) {
-                svg path {
-                    stroke: transparent;
-                    fill: $primary400;
-                }
-            }
-        }
+      svg path {
+        stroke: $primary400;
+      }
     }
 
-    &__line {
-        width: 94%;
-        margin: 25px auto;
-        background-color: $primary400;
-        height: 2px;
-        filter: drop-shadow(0 0 10px $primary400);
+    &:focus {
+      opacity: .5;
     }
+
+    &:nth-child(2) {
+      &:hover {
+        svg path {
+          stroke: transparent;
+          fill: $primary400;
+        }
+      }
+    }
+
+    &.active {
+      background-color: $primary800;
+      color: $primary400;
+      pointer-events: none;
+
+      svg path {
+        stroke: $primary400;
+      }
+
+      &:nth-child(2) {
+        svg path {
+          stroke: transparent;
+          fill: $primary400;
+        }
+      }
+    }
+  }
+
+  &__line {
+    width: 94%;
+    margin: 25px auto;
+    background-color: $primary400;
+    height: 2px;
+    filter: drop-shadow(0 0 30px $primary400);
+  }
 }

@@ -1,43 +1,43 @@
 .socials {
-    padding: $padding96 0;
+  padding: $padding96 0;
+  background-color: $black600;
+
+  &__item {
+    border-radius: 12px;
+    padding: 16px;
+    background-color: $black500;
+    transition: background-color .4s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $primary800;
+
+      .services__icon {
+        background-color: $primary700;
+      }
+    }
+
+    &--blur {
+      filter: blur(7px);
+    }
+  }
+
+  &__icon {
+    @include flex-center;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
     background-color: $black600;
+    margin-bottom: 20px;
+    transition: background-color .4s;
+  }
 
-    &__item {
-        border-radius: 12px;
-        padding: 16px;
-        background-color: $black500;
-        transition: background-color .4s;
-        cursor: pointer;
+  &__name {
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
 
-        &:hover {
-            background-color: $primary800;
-
-            .services__icon {
-                background-color: $primary700;
-            }
-        }
-
-        &--blur {
-            filter: blur(7px);
-        }
-    }
-
-    &__icon {
-        @include flex-center;
-        width: 48px;
-        height: 48px;
-        border-radius: 10px;
-        background-color: $black600;
-        margin-bottom: 20px;
-        transition: background-color .4s;
-    }
-
-    &__name {
-        font-weight: 500;
-        margin-bottom: 8px;
-    }
-
-    &__description {
-        color: $gray500;
-    }
+  &__description {
+    color: $gray500;
+  }
 }
