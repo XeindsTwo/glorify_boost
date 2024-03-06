@@ -60,6 +60,7 @@
     </div>
   </div>
   <div class="header__menu">
+    @if(Auth::check())
     <span class="header__menu-balance">Баланс - {{number_format($balance, 2, ',', ' ')}} ₽</span>
     <a class="header__btn-balance btn" href="{{route('balance')}}">Пополнить счет</a>
     <div class="header__actions">
@@ -101,5 +102,6 @@
         </li>
       </ul>
     </nav>
+    @endif
   </div>
 </header>

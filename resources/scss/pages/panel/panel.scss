@@ -19,6 +19,7 @@
 
   &__content {
     @include flex-column(50);
+    width: 100%;
   }
 
   &__title, &__subtitle {

@@ -9,50 +9,50 @@ const accountName = document.getElementById('account-name');
 const submitButton = document.getElementById('save-edit-name');
 
 openModalUpdateName.addEventListener('click', () => {
-    openModal(modalUpdateName);
-    checkNameChange();
+  openModal(modalUpdateName);
+  checkNameChange();
 });
 
 closeModalUpdateName.addEventListener('click', () => {
-    closeModal(modalUpdateName);
+  closeModal(modalUpdateName);
 });
 
 handleModalClose(modalUpdateName);
 
 formUpdateName.addEventListener('submit', function (event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const formData = new FormData(this);
+  const formData = new FormData(this);
 
-    fetch(this.action, {
-        method: 'POST',
-        body: formData
+  fetch(this.action, {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        closeModal(modalUpdateName);
+        updateAccountName();
+        alert(data.success);
+      } else if (data.error) {
+        alert(data.error);
+      }
     })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                closeModal(modalUpdateName);
-                updateAccountName();
-                alert(data.success);
-            } else if (data.error) {
-                alert(data.error);
-            }
-        })
-        .catch(error => {
-            console.error('Ошибка:', error);
-        });
+    .catch(error => {
+      console.error('Ошибка:', error);
+    });
 });
 
 function updateAccountName() {
-    accountName.textContent = nameInput.value;
+  accountName.textContent = nameInput.value;
 }
 
 function checkNameChange() {
-    const isNameChanged = nameInput.value !== accountName.textContent;
-    submitButton.disabled = !isNameChanged;
+  const isNameChanged = nameInput.value !== accountName.textContent;
+  submitButton.disabled = !isNameChanged;
 }
 
 nameInput.addEventListener('input', () => {
-    const isNameChanged = nameInput.value !== accountName.textContent;
-    submitButton.disabled = !isNameChanged;
+  const isNameChanged = nameInput.value !== accountName.textContent;
+  submitButton.disabled = !isNameChanged;
 })

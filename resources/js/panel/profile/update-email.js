@@ -10,62 +10,62 @@ const accountEmail = document.getElementById('account-email');
 const submitButton = document.getElementById('save-edit-email');
 
 openModalUpdateEmail.addEventListener('click', () => {
-    openModal(modalUpdateEmail);
-    checkEmailChange();
+  openModal(modalUpdateEmail);
+  checkEmailChange();
 });
 
 closeModalUpdateEmail.addEventListener('click', () => {
-    closeModal(modalUpdateEmail);
+  closeModal(modalUpdateEmail);
 });
 
 handleModalClose(modalUpdateEmail);
 
 formUpdateEmail.addEventListener('submit', async function (event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const formData = new FormData(this);
-    try {
-        const response = await fetch('/check-email-edit-profile', {
-            method: 'POST',
-            body: formData
-        });
-        const data = await response.json();
+  const formData = new FormData(this);
+  try {
+    const response = await fetch('/check-email-edit-profile', {
+      method: 'POST',
+      body: formData
+    });
+    const data = await response.json();
 
-        if (data.exists) {
-            errorEmail.classList.add('error--active');
-            setTimeout(() => {
-                errorEmail.classList.remove('error--active');
-            }, 2000);
-        } else {
-            const updateResponse = await fetch(this.action, {
-                method: 'POST',
-                body: formData
-            });
-            const updateData = await updateResponse.json();
+    if (data.exists) {
+      errorEmail.classList.add('error--active');
+      setTimeout(() => {
+        errorEmail.classList.remove('error--active');
+      }, 2000);
+    } else {
+      const updateResponse = await fetch(this.action, {
+        method: 'POST',
+        body: formData
+      });
+      const updateData = await updateResponse.json();
 
-            if (updateData.success) {
-                closeModal(modalUpdateEmail);
-                updateAccountEmail();
-                alert(updateData.success);
-            } else if (updateData.error) {
-                alert(updateData.error);
-            }
-        }
-    } catch (error) {
-        console.error('Ошибка:', error);
+      if (updateData.success) {
+        closeModal(modalUpdateEmail);
+        updateAccountEmail();
+        alert(updateData.success);
+      } else if (updateData.error) {
+        alert(updateData.error);
+      }
     }
+  } catch (error) {
+    console.error('Ошибка:', error);
+  }
 });
 
 function updateAccountEmail() {
-    accountEmail.textContent = emailInput.value;
+  accountEmail.textContent = emailInput.value;
 }
 
 function checkEmailChange() {
-    const isEmailChanged = emailInput.value !== accountEmail.textContent;
-    submitButton.disabled = !isEmailChanged;
+  const isEmailChanged = emailInput.value !== accountEmail.textContent;
+  submitButton.disabled = !isEmailChanged;
 }
 
 emailInput.addEventListener('input', () => {
-    const isEmailChanged = emailInput.value !== accountEmail.textContent;
-    submitButton.disabled = !isEmailChanged;
+  const isEmailChanged = emailInput.value !== accountEmail.textContent;
+  submitButton.disabled = !isEmailChanged;
 });

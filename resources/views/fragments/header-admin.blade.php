@@ -25,7 +25,8 @@
     </svg>
     Работа с транзакциями
   </a>
-  <a class="admin__link" href="">
+  <a class="admin__link {{Route::currentRouteName() === 'admin.services.index' ? 'active' : ''}}"
+     href="{{route('admin.services.index')}}">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_48_14833)">
         <path
@@ -41,6 +42,6 @@
         </clipPath>
       </defs>
     </svg>
-    Редактирование новых заказов
+    Редактирование для заказов
   </a>
 </div>
