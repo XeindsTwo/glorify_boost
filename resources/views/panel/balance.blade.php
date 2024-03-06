@@ -21,30 +21,32 @@
         @if($transactions->isEmpty())
           <p class="panel-balance__empty">На данный момент пополнений еще не имеется</p>
         @else
-          <table class="panel-balance__table">
-            <thead>
-            <tr class="panel-balance__head">
-              <th>Идентификатор</th>
-              <th>Тип</th>
-              <th>Сумма</th>
-              <th>Дата</th>
-            </tr>
-            </thead>
-            <tbody class="panel-balance__body">
-            @foreach($transactions as $transaction)
-              <tr class="panel-balance__head panel-balance__item">
-                <td>{{ $transaction->id }}</td>
-                <td class="panel-balance__type
+          <div>
+            <table class="panel-balance__table">
+              <thead>
+              <tr class="panel-balance__head">
+                <th>Идентификатор</th>
+                <th>Тип</th>
+                <th>Сумма</th>
+                <th>Дата</th>
+              </tr>
+              </thead>
+              <tbody class="panel-balance__body">
+              @foreach($transactions as $transaction)
+                <tr class="panel-balance__head panel-balance__item">
+                  <td>{{ $transaction->id }}</td>
+                  <td class="panel-balance__type
             @if($transaction->type === 'Пополнение') panel-balance__type--deposit
             @elseif($transaction->type === 'Возврат средств') refund @endif">
-                  {{ $transaction->type }}
-                </td>
-                <td>{{number_format($transaction->amount, 2, ',', ' ')}} ₽</td>
-                <td>{{ $transaction->created_at->isoFormat('D MMM YYYY') }}</td>
-              </tr>
-            @endforeach
-            </tbody>
-          </table>
+                    {{ $transaction->type }}
+                  </td>
+                  <td>{{number_format($transaction->amount, 2, ',', ' ')}} ₽</td>
+                  <td>{{ $transaction->created_at->isoFormat('D MMM YYYY') }}</td>
+                </tr>
+              @endforeach
+              </tbody>
+            </table>
+          </div>
         @endif
       </div>
     </div>

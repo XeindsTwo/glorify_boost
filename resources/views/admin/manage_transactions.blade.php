@@ -5,9 +5,6 @@
   <div class="container container--admin">
     @include('fragments/header-admin')
     <h1 class="admin__title">Работа с транзакциями</h1>
-    <form class="admin-users__search" action="#" method="GET" id="searchForm">
-      <input class="input" type="text" id="query" name="query" placeholder="Поиск платежа по ID">
-    </form>
     @if($transactions->isEmpty())
       <p class="panel-balance__empty">На данный момент пополнений еще не имеется</p>
     @else

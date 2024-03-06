@@ -1,6 +1,15 @@
 .services {
   background-color: $black600;
   padding: $padding96 0;
+  @include r($desktop) {
+    padding: $padding74 0;
+  }
+  @media (max-width: 860px) {
+    padding: $padding60 0;
+  }
+  @media (max-width: 690px) {
+    padding: $padding50 0;
+  }
 
   &__icon {
     margin-bottom: 20px;
@@ -19,5 +28,6 @@
 
   &__text {
     color: $gray500;
+    padding-right: 15px;
   }
 }

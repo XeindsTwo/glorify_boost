@@ -15,12 +15,15 @@
   &__table {
     font-size: 14px;
     margin-top: 50px;
-    width: 100%;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid $black600;
     @include flex-column();
     margin-bottom: 50px;
+    @media (max-width: 865px) {
+
+      overflow-x: scroll;
+    }
   }
 
   &__head {

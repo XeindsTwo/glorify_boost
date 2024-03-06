@@ -1,39 +1,42 @@
 .label {
-    font-size: 14px;
-    line-height: 1.2;
-    margin-bottom: 6px;
-    display: block;
-    font-weight: 500;
-    color: $gray600;
-    cursor: pointer;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  display: block;
+  font-weight: 500;
+  color: $gray600;
+  cursor: pointer;
 }
 
 .input {
-    border-radius: 8px;
-    padding: 12px 14px;
-    background-color: $black700;
-    border: 1px solid $black500;
-    transition: background-color .4s, border .4s;
-    width: 100%;
-    font-size: 16px;
-    color: $white;
+  border-radius: 8px;
+  padding: 12px 14px;
+  background-color: $black700;
+  border: 1px solid $black500;
+  transition: background-color .4s, border .4s;
+  width: 100%;
+  font-size: 16px;
+  color: $white;
+  @include r($phone) {
+    font-size: 14px;
+  }
 
-    &:hover {
-        border-color: $primary400;
-    }
+  &:hover {
+    border-color: $primary400;
+  }
 
-    &:focus {
-        background-color: $black800;
-    }
+  &:focus {
+    background-color: $black800;
+  }
 }
 
 .error {
-    color: #d04141;
-    display: none;
-    margin-bottom: 6px;
-    font-size: 15px;
+  color: #d04141;
+  display: none;
+  margin-bottom: 6px;
+  font-size: 15px;
 
-    &--active {
-        display: block;
-    }
+  &--active {
+    display: block;
+  }
 }

@@ -6,24 +6,16 @@
   display: none;
   position: relative;
   border-radius: 50%;
-  border: 1px solid $gray-darker;
+  border: 2px solid $gray500;
   padding: 18px 16px;
   transition: border .3s, opacity .3s;
 
-  &--header {
-    @media (max-width: 1290px) {
-      display: block;
-    }
-  }
-
-  &--footer {
-    @media (max-width: 930px) {
-      display: block;
-    }
+  @media (max-width: 1075px) {
+    display: block;
   }
 
   &:hover {
-    border-color: $accent;
+    border-color: $primary400;
   }
 
   &:focus {
@@ -56,6 +48,7 @@
   &__line {
     position: relative;
     display: flex;
+    transform: translateX(-1px);
 
     &::before {
       margin-top: -6px;

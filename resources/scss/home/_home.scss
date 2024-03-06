@@ -6,15 +6,39 @@
   position: relative;
   overflow: hidden;
   align-self: flex-start;
+  @media (max-width: 1300px) {
+    padding: 70px 0;
+  }
+  @include r($lg) {
+    padding: 60px 0;
+  }
+  @media (max-width: 860px) {
+    padding: 50px 0;
+  }
+  @include r($tablet) {
+    padding-top: 40px;
+  }
+  @include r($sm) {
+    padding: 35px 0;
+  }
 
   &__inner {
     @include flex-between-center-gap(25);
+    @include r($phone) {
+      flex-direction: column;
+    }
   }
 
   &__content {
     max-width: 700px;
     position: relative;
     z-index: 4;
+    @media (max-width: 960px) {
+      max-width: 560px;
+    }
+    @include r($tablet) {
+      max-width: 440px;
+    }
   }
 
   &__slogan {
@@ -42,10 +66,35 @@
       font-size: 52px;
     }
     @media (max-width: 1100px) {
-      font-size: 50px;
+      font-size: 48px;
+      line-height: 1.16;
     }
     @include r($lg) {
-      font-size: 46px;
+      font-size: 44px;
+    }
+    @media (max-width: 960px) {
+      font-size: 40px;
+    }
+    @media (max-width: 880px) {
+      font-size: 38px;
+    }
+    @media (max-width: 810px) {
+      font-size: 36px;
+    }
+    @include r($tablet) {
+      font-size: 33px;
+    }
+    @media (max-width: 690px) {
+      font-size: 32px;
+    }
+    @include r($sm) {
+      font-size: 30px;
+    }
+    @media (max-width: 540px) {
+      font-size: 28px;
+    }
+    @include r($phone) {
+      font-size: 26px;
     }
   }
 
@@ -55,6 +104,13 @@
     margin-bottom: 48px;
     @media (max-width: 1300px) {
       max-width: 560px;
+    }
+    @media (max-width: 940px) {
+      font-size: 16px;
+      max-width: 430px;
+    }
+    @media (max-width: 690px) {
+      max-width: 340px;
     }
   }
 
@@ -66,6 +122,7 @@
     position: absolute;
     right: 0;
     bottom: -83%;
+    object-fit: cover;
     @media (max-width: 1840px) {
       right: -50px;
     }
@@ -85,19 +142,52 @@
       right: -250px;
     }
     @media (max-width: 1300px) {
-      bottom: -72%;
+      height: 1000px;
+      bottom: -74%;
     }
     @media (max-width: 1230px) {
-      right: -330px;
+      right: -290px;
     }
     @include r($desktop) {
-      height: 1000px;
-      bottom: -67.5%;
+      height: 960px;
       right: -260px;
     }
     @media (max-width: 1060px) {
       right: -290px;
       height: 950px;
+    }
+    @include r($lg) {
+      height: 880px;
+      right: -240px;
+    }
+    @media (max-width: 890px) {
+      right: -300px;
+      height: 840px;
+    }
+    @media (max-width: 860px) {
+      bottom: -79%;
+    }
+    @media (max-width: 840px) {
+      right: -270px;
+    }
+    @include r($tablet) {
+      height: 760px;
+      bottom: -74%;
+    }
+    @media (max-width: 690px) {
+      height: 710px;
+      right: -250px;
+      opacity: .7;
+    }
+    @media (max-width: 540px) {
+      right: -220px;
+    }
+    @include r($phone) {
+      position: static;
+      margin-bottom: -340px;
+      margin-top: -58px;
+      opacity: 1;
+      transform: translateX(15px);
     }
   }
 }

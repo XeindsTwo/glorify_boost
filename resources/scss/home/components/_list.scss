@@ -2,8 +2,26 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 24px;
+  @media (max-width: 1040px) {
+    grid-gap: 20px;
+  }
+  @media (max-width: 910px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 590px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 
   &--big-gap {
     grid-gap: 84px 24px;
+    @include r($desktop) {
+      grid-gap: 70px 24px;
+    }
+    @media (max-width: 1060px) {
+      grid-gap: 60px 20px;
+    }
+    @media (max-width: 910px) {
+      grid-gap: 47px 20px;
+    }
   }
 }

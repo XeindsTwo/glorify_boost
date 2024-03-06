@@ -1,95 +1,186 @@
 .header {
-    padding: 20px 0;
-    border-bottom: 1px solid $black600;
+  padding: 20px 0;
+  border-bottom: 1px solid $black600;
 
-    &__inner {
-        @include flex-align-center(50);
+  &__inner {
+    @include flex-align-center(50);
+    @media (max-width: 1100px) {
+      gap: 40px;
+    }
+    @media (max-width: 1075px) {
+      gap: 25px;
+    }
+    @include r($sm) {
+      gap: 18px;
+    }
+  }
+
+  &__nav {
+    @media (max-width: 1075px) {
+      display: none;
     }
 
-    &__list {
-        @include flex-align-center(32);
-        align-items: flex-start;
+    &--mobile {
+      display: block;
+    }
+  }
+
+  &__list {
+    @include flex-align-center(32);
+    align-items: flex-start;
+    @media (max-width: 1075px) {
+      flex-direction: column;
+      font-size: 20px;
+    }
+  }
+
+  &__link {
+    transition: color .4s, opacity .4s, border .4s;
+    color: $gray500;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    @media (max-width: 1075px) {
+      color: $white;
+      font-weight: 500;
     }
 
-    &__link {
-        transition: color .4s, opacity .4s, border .4s;
-        color: $gray500;
-        font-weight: 600;
-        border-bottom: 1px solid transparent;
-        padding-bottom: 2px;
+    &:hover {
+      color: $primary400;
+    }
 
-        &:hover {
-            color: $primary400;
+    &:focus {
+      color: $white;
+      border-bottom-color: $white;
+    }
+  }
+
+  &__btn {
+    margin-left: auto;
+
+    &-balance {
+      padding: 8px 10px;
+
+      &.desktop {
+        @media (max-width: 1075px) {
+          display: none;
         }
+      }
+    }
+  }
 
-        &:focus {
-            color: $white;
-            border-bottom-color: $white;
-        }
+  &__auth {
+    @include flex-align-center(24);
+    margin-left: auto;
+  }
+
+  &__balance {
+    @include flex-align-center(16);
+    padding: 7px 10px;
+    background-color: $black600;
+    border-radius: 8px;
+    font-size: 14px;
+    @media (max-width: 1075px) {
+      padding: 9px 11px;
+      background-color: $black500;
+    }
+    @include r($phone) {
+      display: none;
     }
 
-    &__btn {
-        margin-left: auto;
+    span {
+      font-weight: 500;
+    }
+  }
 
-        &-balance {
-            padding: 8px 10px;
-        }
+  &__actions {
+    @include flex-align-center(12);
+    @media (max-width: 1075px) {
+      margin-bottom: 40px;
     }
 
-    &__auth {
-        @include flex-align-center(24);
-        margin-left: auto;
+    &.desktop {
+      @media (max-width: 1075px) {
+        display: none;
+      }
+    }
+  }
+
+  &__action {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    overflow: hidden;
+    @include flex-center;
+    transition: background-color .4s, opacity .4s;
+    @media (max-width: 1075px) {
+      width: 56px;
+      height: 56px;
     }
 
-    &__balance {
-        @include flex-align-center(16);
-        padding: 7px 10px;
-        background-color: $black600;
-        border-radius: 8px;
-        font-size: 14px;
-
-        span {
-            font-weight: 500;
-        }
+    &:hover {
+      img {
+        transform: scale(1.15);
+      }
     }
 
-    &__actions {
-        @include flex-align-center(12);
+    &:focus {
+      opacity: .5;
     }
 
-    &__action {
-        width: 44px;
-        height: 44px;
-        border-radius: 8px;
-        overflow: hidden;
-        @include flex-center;
-        transition: background-color .4s, opacity .4s;
+    img {
+      @include objectCoverBg;
+      transition: transform .4s;
+    }
+  }
 
-        &:hover {
-            img {
-                transform: scale(1.15);
-            }
-        }
+  &__logout {
+    background-color: $red800;
 
-        &:focus {
-            opacity: .5;
-        }
+    &:hover {
+      background-color: $red600;
 
-        img {
-            @include objectCoverBg;
-            transition: transform .4s;
-        }
+      svg path {
+        stroke: $white
+      }
+    }
+  }
+
+  &__menu {
+    display: none;
+    font-size: 18px;
+
+    @media (max-width: 1075px) {
+      display: block;
+      position: fixed;
+      z-index: 170;
+      transform: translateX(-150%);
+      transition: transform .7s ease-in-out;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100%;
+      background-color: $black800;
+      backdrop-filter: blur(15px);
+      padding: 120px 60px 0 15px;
     }
 
-    &__logout {
-        background-color: $red800;
-
-        &:hover {
-            background-color: $red600;
-
-            svg path {
-                stroke: $white
-            }
-        }
+    &.active {
+      transform: translateX(0);
     }
+
+    .header__btn-balance {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__menu-balance {
+    display: none;
+    @include r($phone) {
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
 }

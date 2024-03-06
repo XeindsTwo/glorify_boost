@@ -4,6 +4,9 @@
   &__list {
     @include flex-column(8);
     max-width: 640px;
+    @media (max-width: 665px) {
+      gap: 4px;
+    }
   }
 
   &__item {
@@ -12,6 +15,10 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 12px;
     border-bottom: 1px solid $black600;
+    @media (max-width: 665px) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 10px;
+    }
   }
 
   &__name {
@@ -26,6 +33,9 @@
     max-width: max-content;
     margin-left: auto;
     border-radius: 4px;
+    @media (max-width: 665px) {
+      margin-left: 0;
+    }
 
     &:hover {
       color: $primary300;

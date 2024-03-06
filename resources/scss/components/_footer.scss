@@ -1,109 +1,154 @@
 .footer {
-    padding: 64px 0 48px;
+  padding: 64px 0 48px;
+  @include r($desktop) {
+    padding: 54px 0 40px;
+  }
+  @media (max-width: 1040px) {
+    padding: 46px 0 30px;
+  }
+  @include r($lg) {
+    padding-bottom: 20px;
+  }
 
-    &__inner {
-        margin-bottom: 80px;
-        @include flex-align-center(60);
-        align-items: flex-start;
+  &__inner {
+    margin-bottom: 80px;
+    @include flex-align-center(60);
+    align-items: flex-start;
+    @media (max-width: 1040px) {
+      gap: 45px;
+      margin-bottom: 60px;
+    }
+    @include r($lg) {
+      flex-direction: column;
+    }
+    @include r($phone) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__info {
+    max-width: 325px;
+    color: $gray500;
+  }
+
+  &__logo {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  &__columns {
+    margin-left: auto;
+    @include flex-align-center(32);
+    align-items: flex-start;
+    max-width: 392px;
+    width: 100%;
+    margin-right: 40px;
+    @include r($desktop) {
+      margin-right: 10px;
+    }
+    @include r($lg) {
+      margin-left: 0;
+      max-width: 440px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-right: 0;
+    }
+    @media (max-width: 408px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 40px;
+    }
+  }
+
+  &__column {
+    @include flex-column(16);
+    max-width: 180px;
+    width: 100%;
+
+    &-name {
+      color: $gray300;
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+
+  &__list {
+    @include flex-column(12);
+  }
+
+  &__link {
+    color: $gray500;
+    font-weight: 600;
+    transition: color .4s;
+
+    &:hover {
+      color: $primary400;
     }
 
-    &__info {
-        max-width: 325px;
-        color: $gray500;
+    &:focus {
+      color: $white;
+    }
+  }
+
+  &__socials {
+    @include flex-align-center(12);
+  }
+
+  &__social {
+    border-radius: 50%;
+    background-color: $black600;
+    @include flex-center;
+    width: 48px;
+    height: 48px;
+    transition: background-color .4s;
+
+    &:hover {
+      img {
+        filter: opacity(1);
+      }
     }
 
-    &__logo {
-        display: inline-block;
-        margin-bottom: 10px;
+    &:focus {
+      background-color: $black500;
     }
 
-    &__columns {
-        margin-left: auto;
-        @include flex-align-center(32);
-        align-items: flex-start;
-        max-width: 392px;
-        width: 100%;
-        margin-right: 40px;
+    img {
+      @include objectCoverBg;
+      filter: opacity(20%);
+      transition: filter .4s;
+    }
+  }
+
+  &__bottom {
+    @include flex-between(30);
+    font-size: 14px;
+    color: $gray500;
+    @media (max-width: 730px) {
+      flex-direction: column;
+      gap: 14px;
+    }
+  }
+
+  &__sublinks {
+    @include flex-align-center(32);
+    @include r($tablet) {
+      gap: 28px;
+    }
+    @include r($phone) {
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+  }
+
+  &__sublink {
+    transition: color .4s, opacity .4s;
+
+    &:hover {
+      color: $primary300;
     }
 
-    &__column {
-        @include flex-column(16);
-        max-width: 180px;
-        width: 100%;
-
-        &-name {
-            color: $gray300;
-            font-size: 14px;
-            font-weight: 600;
-        }
+    &:focus {
+      opacity: .6;
     }
-
-    &__list {
-        @include flex-column(12);
-    }
-
-    &__link {
-        color: $gray500;
-        font-weight: 600;
-        transition: color .4s;
-
-        &:hover {
-            color: $primary400;
-        }
-
-        &:focus {
-            color: $white;
-        }
-    }
-
-    &__socials {
-        @include flex-align-center(12);
-    }
-
-    &__social {
-        border-radius: 50%;
-        background-color: $black600;
-        @include flex-center;
-        width: 48px;
-        height: 48px;
-        transition: background-color .4s;
-
-        &:hover {
-            img {
-                filter: opacity(1);
-            }
-        }
-
-        &:focus {
-            background-color: $black500;
-        }
-
-        img {
-            @include objectCoverBg;
-            filter: opacity(20%);
-            transition: filter .4s;
-        }
-    }
-
-    &__bottom {
-        @include flex-between(30);
-        font-size: 14px;
-        color: $gray500;
-    }
-
-    &__sublinks {
-        @include flex-align-center(32);
-    }
-
-    &__sublink {
-        transition: color .4s, opacity .4s;
-
-        &:hover {
-            color: $primary300;
-        }
-
-        &:focus {
-            opacity: .6;
-        }
-    }
+  }
 }

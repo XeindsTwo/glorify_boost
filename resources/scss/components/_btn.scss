@@ -1,34 +1,39 @@
 .btn {
-    padding: 12px 20px;
-    font-weight: 600;
-    line-height: 1;
-    border-radius: 8px;
-    border: 2px solid transparent;
-    transition: color .4s, background-color .4s, border .4s, opacity .4s;
-    background-color: $primary400;
+  padding: 12px 20px;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: color .4s, background-color .4s, border .4s, opacity .4s;
+  background-color: $primary400;
+  display: inline-block;
+
+  @media (max-width: 940px) {
+    font-size: 14px;
+  }
+
+  &:hover {
+    background-color: transparent;
+    border-color: $primary400;
+  }
+
+  &:focus {
+    opacity: .5;
+  }
+
+  &--dark {
+    background-color: transparent;
+    border-color: $black500;
+    color: $gray500;
 
     &:hover {
-        background-color: transparent;
-        border-color: $primary400;
+      color: $white;
     }
 
     &:focus {
-        opacity: .5;
+      border-color: $white;
+      color: $white;
+      opacity: .8;
     }
-
-    &--dark {
-        background-color: transparent;
-        border-color: $black500;
-        color: $gray500;
-
-        &:hover {
-            color: $white;
-        }
-
-        &:focus {
-            border-color: $white;
-            color: $white;
-            opacity: .8;
-        }
-    }
+  }
 }

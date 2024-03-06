@@ -11,16 +11,22 @@
   &__inner {
     margin-top: 60px;
     @include flex-between(48);
+    @media (max-width: 1100px) {
+      margin-top: 45px;
+      flex-direction: column;
+    }
   }
 
   &__content {
-    width: 100%;
     @include flex-column(50);
   }
 
   &__title, &__subtitle {
     font-size: 20px;
     font-weight: 500;
+    @include r($phone) {
+      font-size: 18px;
+    }
   }
 
   &__title {

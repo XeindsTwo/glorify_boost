@@ -1,6 +1,16 @@
 .top {
   max-width: 716px;
   margin-bottom: 64px;
+  @include r($desktop) {
+    margin-bottom: 48px;
+    max-width: 620px;
+  }
+  @include r($lg) {
+    margin-bottom: 40px;
+  }
+  @media (max-width: 860px) {
+    max-width: 520px;
+  }
 
   &--short {
     max-width: 560px;
@@ -11,16 +21,46 @@
     margin-bottom: 12px;
     display: inline-block;
     color: $primary400;
+    @include r($desktop) {
+      margin-bottom: 7px;
+    }
   }
 
   &__title {
     font-size: 36px;
     font-weight: 600;
     margin-bottom: 20px;
+    @include r($desktop) {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+    @include r($lg) {
+      font-size: 30px;
+    }
+    @media (max-width: 860px) {
+      font-size: 28px;
+    }
+    @include r($sm) {
+      font-weight: 500;
+      font-size: 26px;
+    }
+    @media (max-width: 510px) {
+      font-size: 24px;
+      line-height: 1.1;
+    }
+    @include r($phone) {
+      font-size: 22px;
+    }
   }
 
   &__text {
     font-size: 20px;
     color: $gray500;
+    @include r($desktop) {
+      font-size: 18px;
+    }
+    @include r($sm) {
+      font-size: 16px;
+    }
   }
 }

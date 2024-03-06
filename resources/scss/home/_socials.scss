@@ -1,6 +1,15 @@
 .socials {
   padding: $padding96 0;
   background-color: $black600;
+  @include r($desktop) {
+    padding: $padding74 0;
+  }
+  @media (max-width: 860px) {
+    padding: $padding60 0;
+  }
+  @media (max-width: 690px) {
+    padding: $padding50 0;
+  }
 
   &__item {
     border-radius: 12px;
@@ -8,6 +17,10 @@
     background-color: $black500;
     transition: background-color .4s;
     cursor: pointer;
+    @media (max-width: 1040px) {
+      padding: 16px 14px;
+      border-radius: 8px;
+    }
 
     &:hover {
       background-color: $primary800;
@@ -30,11 +43,19 @@
     background-color: $black600;
     margin-bottom: 20px;
     transition: background-color .4s;
+    @include r($lg) {
+      width: 44px;
+      height: 44px;
+    }
   }
 
   &__name {
     font-weight: 500;
     margin-bottom: 8px;
+    font-size: 20px;
+    @include r($lg) {
+      font-size: 18px;
+    }
   }
 
   &__description {
