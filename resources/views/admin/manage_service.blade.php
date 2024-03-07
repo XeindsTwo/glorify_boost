@@ -37,20 +37,20 @@
         </li>
         <li>
           <label class="label" for="price_low">Цена за низкое качество</label>
-          <input class="input" type="number" id="price_low" name="price_low" required min="0.1" max="50000">
+          <input class="input" type="text" id="price_low" name="price_low" required data-input-mask="price">
         </li>
         <li>
           <label class="label" for="price_medium">Цена за среднее качество</label>
-          <input class="input" type="number" id="price_medium" name="price_medium" required min="0.2" max="50000">
+          <input class="input" type="text" id="price_medium" name="price_medium" required data-input-mask="price">
         </li>
         <li>
           <label class="label" for="price_high">Цена за высокое качество</label>
-          <input class="input" type="number" id="price_high" name="price_high" required min="0.3" max="50000">
+          <input class="input" type="text" id="price_high" name="price_high" required data-input-mask="price">
         </li>
       </ul>
       <button class="admin-service__btn" type="submit">Создать услугу</button>
     </form>
-    @if($serviceItems->isEmpty())
+  @if($serviceItems->isEmpty())
       <p class="admin-service__empty">На данный момент услуг сервиса ещё нет, но вы можете их создать</p>
     @else
       <ul class="list-items">
