@@ -2,6 +2,7 @@ import {closeModal, handleModalClose, openModal} from './components/modal-functi
 
 const modalAdd = document.getElementById('modalAddService');
 const modalDelete = document.getElementById('modalDeleteService');
+const modalEdit = document.getElementById('modalEditService');
 
 const btnCreateService = document.getElementById('btnCreateService');
 const btnCloseCreateService = document.getElementById('btnCloseCreateService');
@@ -78,7 +79,9 @@ modalFormCreate.addEventListener('submit', async (e) => {
         <span>${data.service.name}</span>
       </div>
       <div class="admin-services__actions">
-        <button class="admin-services__action edit" type="button">Редактировать</button>
+         <a class="admin-services__action edit" href="/admin/services/${data.service.id}">
+        Редактировать
+      </a>
         <button
           class="admin-services__action delete"
           type="button"
@@ -129,3 +132,4 @@ servicesList.addEventListener('click', async (e) => {
 
 handleModalClose(modalAdd);
 handleModalClose(modalDelete);
+handleModalClose(modalEdit);

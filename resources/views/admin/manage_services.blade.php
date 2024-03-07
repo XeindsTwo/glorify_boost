@@ -16,10 +16,16 @@
               <div class="admin-services__logo">
                 <img src="{{ asset('storage/logos/' . $service->logo) }}" alt="Логотип сервиса">
               </div>
-              {{$service->name}}
+              <span class="admin-services__name">
+                {{$service->name}}
+              </span>
             </div>
             <div class="admin-services__actions">
-              <button class="admin-services__action edit" type="button">Редактировать</button>
+              <a class="admin-services__action edit"
+                 href="{{ route('admin.services.show', ['service' => $service->id]) }}"
+              >
+                Редактировать
+              </a>
               <button
                   class="admin-services__action delete"
                   type="button"
@@ -73,3 +79,4 @@
 </div>
 
 @vite(['resources/js/services.js'])
+@vite(['resources/js/components/menu.js'])

@@ -14,4 +14,5 @@
   </div>
 </section>
 @vite(['resources/js/app.js'])
+@vite(['resources/js/components/menu.js'])
 </body>

@@ -134,3 +134,4 @@
 @vite(['resources/js/panel/profile/update-email.js'])
 @vite(['resources/js/panel/profile/update-avatar.js'])
 @vite(['resources/js/panel/profile/update-password.js'])
+@vite(['resources/js/components/menu.js'])

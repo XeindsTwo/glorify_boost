@@ -54,3 +54,4 @@
 </section>
 </body>
 @vite(['resources/js/panel/balance.js'])
+@vite(['resources/js/components/menu.js'])

@@ -49,3 +49,4 @@
 @vite(['resources/js/components/custom-select.js'])
 @vite(['resources/js/user/edit.js?type=module'])
 @vite(['resources/js/user.js?type=module'])
+@vite(['resources/js/components/menu.js'])

@@ -38,11 +38,14 @@ class ServiceController extends Controller
   public function update(Request $request, Service $service)
   {
     $request->validate([
-      'name' => 'required|string|max:255',
+      'name' => 'sometimes|required|string|max:255',
       'logo' => 'nullable|file|mimes:svg,png,jpg,webp|max:2048',
     ]);
 
-    $service->name = $request->name;
+    if ($request->has('name')) {
+      $service->name = $request->name;
+    }
+
     if ($request->hasFile('logo')) {
       $logoName = $request->file('logo')->hashName();
       if ($service->logo) {
@@ -60,5 +63,11 @@ class ServiceController extends Controller
   {
     $service->delete();
     return response()->json(['message' => 'Сервис успешно удалён']);
+  }
+
+  public function show(Service $service)
+  {
+    $serviceItems = $service->serviceItems()->get();
+    return view('admin.manage_service', compact('service', 'serviceItems'));
   }
 }

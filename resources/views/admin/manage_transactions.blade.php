@@ -63,3 +63,4 @@
   </div>
 </div>
 @vite(['resources/js/user/transactions.js'])
+@vite(['resources/js/components/menu.js'])

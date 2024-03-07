@@ -82,3 +82,4 @@
 </section>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+@vite(['resources/js/components/menu.js'])
