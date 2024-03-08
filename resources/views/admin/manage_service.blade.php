@@ -50,7 +50,7 @@
       </ul>
       <button class="admin-service__btn" type="submit">Создать услугу</button>
     </form>
-  @if($serviceItems->isEmpty())
+    @if($serviceItems->isEmpty())
       <p class="admin-service__empty">На данный момент услуг сервиса ещё нет, но вы можете их создать</p>
     @else
       <ul class="list-items">
@@ -63,21 +63,30 @@
                 Удалить услугу
               </button>
               |
-              <button class="list-item__edit" type="button">Редактировать услугу</button>
+              <button class="list-item__edit" type="button"
+                      data-service-id="{{ $serviceItem->id }}"
+                      data-name="{{ $serviceItem->name }}"
+                      data-price-low="{{ $serviceItem->price_low }}"
+                      data-price-medium="{{ $serviceItem->price_medium }}"
+                      data-price-high="{{ $serviceItem->price_high }}"
+              >
+                Редактировать услугу
+              </button>
             </div>
             <p class="list-item__name">{{ $serviceItem->name }}</p>
             <div class="list-item__prices">
               <p class="list-item__text">
                 Низкая
-                <span>{{ number_format($serviceItem->price_low, 1, '.', ' ') }} ₽</span>
+                <span
+                    id="price_low_{{ $serviceItem->id }}">{{ number_format($serviceItem->price_low, 2, '.', ' ') }} ₽</span>
               </p>
               <p class="list-item__text">
                 Средняя
-                <span>{{ number_format($serviceItem->price_medium, 1, '.', ' ') }} ₽</span>
+                <span id="price_medium_{{ $serviceItem->id }}">{{ number_format($serviceItem->price_medium, 2, '.', ' ') }} ₽</span>
               </p>
               <p class="list-item__text">
                 Высокая
-                <span>{{ number_format($serviceItem->price_high, 1, '.', ' ') }} ₽</span>
+                <span id="price_high_{{ $serviceItem->id }}">{{ number_format($serviceItem->price_high, 2, '.', ' ') }} ₽</span>
               </p>
             </div>
           </li>
@@ -86,7 +95,35 @@
     @endif
   </div>
 </section>
-</body>
+<div class="modal modal--long" id="modalEdit">
+  <h3 class="modal__title modal__title--bottom">Редактирование услуги</h3>
+  <form class="modal__form" id="modalForm" method="post" action="{{ route('admin.services.create') }}">
+    <input type="hidden" id="serviceItemId" name="serviceItemId" value="{{ $service->id }}">
+    <button class="modal__close" id="btnCloseModalEdit" type="button"></button>
+    @csrf
+    <div class="modal__list modal__list--grid">
+      <div class="admin-edit__item">
+        <label class="label" for="name_edit">Название услуги</label>
+        <input class="input" type="text" id="name_edit" maxlength="255" name="name_edit" required>
+      </div>
+      <div class="admin-edit__item">
+        <label class="label" for="price_low_edit">Цена за низкое качество</label>
+        <input class="input" type="text" id="price_low_edit" name="price_low_edit" required data-input-mask="price">
+      </div>
+      <div class="admin-edit__item">
+        <label class="label" for="price_medium_edit">Цена за среднее качество</label>
+        <input class="input" type="text" id="price_medium_edit" name="price_medium_edit" required
+               data-input-mask="price">
+      </div>
+      <div class="admin-edit__item">
+        <label class="label" for="price_high_edit">Цена за высокое качество</label>
+        <input class="input" type="text" id="price_high_edit" name="price_high_edit" required data-input-mask="price">
+      </div>
+    </div>
+    <button class="btn" type="submit">Сохранить изменения</button>
+  </form>
+</div>
+</body
 @vite(['resources/js/service.js'])
 <script>
   const editService = async () => {
@@ -139,7 +176,6 @@
     editService();
   });
 </script>
-
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const deleteButtons = document.querySelectorAll('.list-item__delete');

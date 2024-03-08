@@ -19,7 +19,7 @@ class ServiceItemController extends Controller
       'price_high' => 'required|numeric',
     ]);
 
-    $serviceItem = ServiceItem::create([
+    ServiceItem::create([
       'service_id' => $service->id,
       'name' => $validatedData['name'],
       'price_low' => $validatedData['price_low'],
@@ -27,7 +27,7 @@ class ServiceItemController extends Controller
       'price_high' => $validatedData['price_high'],
     ]);
 
-    return response()->json(['message' => 'Услуга успешно создана', 'serviceItem' => $serviceItem]);
+    return redirect()->back()->with('success', 'Услуга успешно создана');
   }
 
   public function destroy($id)
