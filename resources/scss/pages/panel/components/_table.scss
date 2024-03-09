@@ -1,0 +1,124 @@
+.table {
+  font-size: 14px;
+  margin-top: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid $black600;
+  @include flex-column();
+  margin-bottom: 50px;
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    align-items: center;
+    color: $white;
+    font-weight: 500;
+    background-color: $black600;
+
+    th {
+      padding: 10px 20px;
+    }
+  }
+
+  &__body {
+    @include flex-column();
+
+    td {
+      padding: 24px 20px;
+    }
+  }
+
+  &__item {
+    background-color: transparent;
+    color: $gray300;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $black600;
+    }
+  }
+
+  td, th {
+    width: 100%;
+  }
+
+  &__id {
+    max-width: 120px;
+  }
+
+  &__date {
+    max-width: 160px;
+  }
+
+  &__price {
+    max-width: 135px;
+  }
+
+  &__link {
+    max-width: 140px;
+
+    a {
+      transition: color .4s, opacity .4s;
+      color: $white;
+
+      &:hover {
+        color: $primary300;
+      }
+
+      &:focus {
+        color: $primary300;
+      }
+    }
+  }
+
+  &__service {
+    padding: 3px 10px;
+    border-radius: 20px;
+    color: #8297ff;
+    background-color: #2a3360;
+    display: flex;
+    max-width: max-content;
+    text-align: center;
+  }
+
+  &__status {
+    max-width: 140px;
+
+    &.processing {
+      color: #f5be00;
+    }
+
+    &.cancelled {
+      color: #fe4f4f;
+    }
+  }
+
+  &__action {
+    text-align: center;
+    max-width: 125px;
+  }
+
+  &__delete {
+    line-height: 1.3;
+    transition: color .4s;
+    color: #fc3d3d;
+
+    &:hover {
+      color: $red600;
+    }
+
+    &:focus {
+      color: $white;
+    }
+  }
+
+  &__type {
+    &--deposit {
+      color: $green300;
+    }
+
+    &.refund {
+      color: #fe4f4f;
+    }
+  }
+}

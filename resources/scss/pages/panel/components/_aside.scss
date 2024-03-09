@@ -1,7 +1,7 @@
 .control {
   max-width: 270px;
   width: 100%;
-  @include flex-column(4);
+  @include flex-column(6);
   @media (max-width: 1100px) {
     max-width: 100%;
     flex-direction: row;

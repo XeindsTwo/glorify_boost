@@ -19,10 +19,9 @@
           </div>
         @else
           <div class="home__actions">
-            <a class="btn" href="{{route('profile')}}">Начать работу с панелью</a>
+            <a class="btn" href="{{route('order.create')}}">Начать работу с панелью</a>
           </div>
         @endif
-
       </div>
       <img class="home__img" src="{{asset('static/images/home.png')}}" alt="декор">
     </div>

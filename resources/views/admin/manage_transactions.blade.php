@@ -34,7 +34,7 @@
             <td>{{ $transaction->created_at->isoFormat('D MMM YYYY') }}</td>
             <td>{{ $transaction->user->login }}</td>
             <td>
-              @if(!$transaction->cancelled && $transaction->type !== 'Возврат средств')
+              @if(!$transaction->cancelled && $transaction->type !== 'Возврат средств' && !str_starts_with($transaction->type, 'Выполнение заказа'))
                 <button class="panel-balance__btn cancel-payment-btn"
                         data-transaction-id="{{ $transaction->id }}"
                         type="button">

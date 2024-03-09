@@ -14,27 +14,23 @@ document.querySelectorAll('input[data-input-mask="price"]').forEach(function (in
   input.addEventListener('input', function () {
     this.value = this.value
       .replace(/[^\d.]/g, '')
-      .replace(/,/g, '.');
+      .replace(/(?<=\.\d{2})./g, '');
 
     const decimalIndex = this.value.indexOf('.');
     if (decimalIndex !== -1) {
       const parts = this.value.split('.');
-      if (parts[1].length > 2) {
-        parts[1] = parts[1].slice(0, 2);
-        this.value = parts.join('.');
+      if (parts.length > 2) {
+        this.value = parts[0] + '.' + parts.slice(1).join('');
       }
     }
   });
 
   input.addEventListener('keydown', function (event) {
-    if (event.keyCode === 188) {
-      event.preventDefault();
-      this.value += '.';
-    }
-
-    const dotCount = (this.value.match(/\./g) || []).length;
-    if (dotCount >= 1 && event.keyCode === 190) {
-      event.preventDefault();
+    if (event.keyCode === 190) {
+      const dotCount = (this.value.match(/\./g) || []).length;
+      if (dotCount >= 1) {
+        event.preventDefault();
+      }
     }
   });
 });
