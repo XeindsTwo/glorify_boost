@@ -1,2 +1,13 @@
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /app/
+Disallow: /routes/
+Disallow: /.env/
+Disallow: /bootstrap/
+Disallow: /config/
+Disallow: /database/
+Disallow: /node_modules/
+Disallow: /storage/
+Disallow: /vendor/
+
+Sitemap: https://glorifyboost.com/sitemap.xml

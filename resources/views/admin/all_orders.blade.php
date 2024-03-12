@@ -41,7 +41,9 @@
               {{ $order->status }}
             </td>
             <td class="table__action">
-              <button class="table__delete" type="button">Отменить заказ</button>
+              @if($order->status !== 'Отменен')
+                <button class="table__delete" type="button">Отменить заказ</button>
+              @endif
             </td>
           </tr>
         @endforeach
