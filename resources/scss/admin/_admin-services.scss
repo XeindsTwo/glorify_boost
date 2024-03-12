@@ -58,6 +58,7 @@
 
     img {
       @include objectCoverBg;
+      object-fit: contain;
       width: 24px;
       height: 24px;
     }
