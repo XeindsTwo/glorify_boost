@@ -43,7 +43,7 @@ modalConfirm.addEventListener('click', async () => {
       closeModal(modal);
 
       const date = new Date(responseData.refundTransaction.created_at);
-      const formattedDate = date.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+      const formattedDate = date.toLocaleDateString('en-US', {day: 'numeric', month: 'short', year: 'numeric'});
 
       const amount = Number(responseData.refundTransaction.amount);
       const formattedAmount = amount.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'});
